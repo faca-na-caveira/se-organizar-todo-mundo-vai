@@ -24,6 +24,13 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', function($routeProvid
 			controller  : 'contactController'
 		})
 
+		//postagens
+		// rota da pagina contato
+		.when('/ten_tips', {
+			templateUrl : '/static/partials/ten_tips.html',
+			controller  : 'tenTipsController'
+		})
+
 		.otherwise({
 			redirectTo:'/'
 		});
@@ -35,14 +42,16 @@ leadBlogApp.controller('mainController', function($scope) {
 	$scope.cargo = "";
 	$scope.tipo_pessoa = false;
 
-	$('.carousel.carousel-slider').carousel({
-		fullWidth: true,
-		duration: 300
-	});
+	$('.slider').slider();
 
-	setInterval(function(){
-		$('.carousel').carousel('next');
-	}, 5000);
+	// $('.carousel.carousel-slider').carousel({
+	// 	fullWidth: true,
+	// 	duration: 300
+	// });
+
+	// setInterval(function(){
+	// 	$('.carousel').carousel('next');
+	// }, 5000);
 
 	$(".button-collapse").sideNav();
 	$('.modal').modal();
@@ -69,4 +78,11 @@ leadBlogApp.controller('aboutController', function($scope) {
 
 leadBlogApp.controller('contactController', function($scope) {
 	$scope.message = '';
+});
+
+leadBlogApp.controller('tenTipsController', function($scope) {
+	$('.slider').slider({
+		indicators: false
+	});
+	$('.slider').slider('pause');
 });

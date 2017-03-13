@@ -41,7 +41,6 @@ h6 a {
 .footer {
 	bottom: 0;
 	height: 10rem;
-	background-color: #009bdb;
 }
 
 .carousel-footer {
@@ -62,5 +61,9 @@ h6 a {
 }
 
 .blue-1 {
-	background-color: #009bdb;
+	background-color: #009bdb !important;
+}
+
+.margin-b-0{
+	margin-bottom: 0;
 }

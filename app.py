@@ -1,10 +1,6 @@
-import os
-
-import pytz
 from flask import Flask
 from flask import render_template
 from flask import request
-from flask import send_file
 from flask_restful import inputs, reqparse, Resource, Api
 from flask_pymongo import PyMongo
 from pymongo.errors import DuplicateKeyError

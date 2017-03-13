@@ -18,6 +18,10 @@ h6 a {
 	text-decoration: none;
 }
 
+
+.carousel-item {
+	max-height: 800px;
+}
 .landscape {
     height: 85px;
     width: 120px;
@@ -27,6 +31,10 @@ h6 a {
     height: 45px;
     width: 45px;
     margin-top: 0.7rem;
+}
+
+.square.logo-icon{
+	margin-right: 1.5rem;
 }
 
 .sm-square {
@@ -39,8 +47,20 @@ h6 a {
 }
 
 .footer {
-	bottom: 0;
-	height: 10rem;
+	padding: 3rem;
+	background-color: #009bdb;
+}
+
+article#blog-posts {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+main > .container {
+	padding-bottom: 3rem;
+}
+
+main .container > .btn-large {
+	margin-top: 2rem;
 }
 
 .carousel-footer {
@@ -60,10 +80,74 @@ h6 a {
 	opacity: 0.8 !important;
 }
 
+.modal-lead .button-actions > button{
+	margin-bottom: 20px;
+}
+
 .blue-1 {
 	background-color: #009bdb !important;
 }
 
 .margin-b-0{
 	margin-bottom: 0;
+	background-color: #009bdb;
 }
+
+.card-image > .card-title{
+	width: 100%;
+	background: rgba(0,0,0,0.5);
+}
+
+
+/* Post details styles */
+#image-post img{
+	width: 100%;
+	height: 40vh;
+	flex-shrink: 0;
+}
+
+article#post{
+	margin-top: -35vh;
+	flex-shrink: 0;
+	position: relative;
+}
+.post-container {
+	max-width: 1600px;
+	width: calc(100% - 16px);
+	margin: 0 auto;
+}
+
+.post-content {
+	border-radius: 2px;
+	padding: 80px 56px;
+	margin-bottom: 80px;
+	background-color: #fff;
+}
+
+.post-content header{
+	margin-top: 2rem;
+}
+
+.post-content .post-text{
+	font-size: 16px;
+	font-weight: 400;
+}
+.post-content.card-panel {
+	padding: 3rem;
+}
+
+@media only screen and (max-width: 480px){
+	.post-content.card-panel {
+		padding: 1rem;
+	}
+}
+
+/* slider */
+.caption {
+	padding: 10px;
+	border-radius: 10px;
+    background: rgba(0,0,0,0.5);
+	font-weight: 300;
+	font-size: 60px;
+}
+

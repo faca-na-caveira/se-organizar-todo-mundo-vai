@@ -26,10 +26,12 @@ mongo = PyMongo(app, config_prefix='MONGO')
 parser = reqparse.RequestParser()
 parser.add_argument('email', required=True, help="Email cannot be blank!")
 parser.add_argument('name', required=True, help="Name cannot be blank")
+parser.add_argument('company', required=False)
 parser.add_argument('is_company', type=inputs.boolean)
 
 
 class Producer(Resource):
+
     def post(self):
         """
         1 - Get current date and hour (now), and save with BRT Timezone!!!
@@ -38,8 +40,12 @@ class Producer(Resource):
         returns an error message.
         :return:
         """
-
+        post = request.get_json()
         data = parser.parse_args()
+        data['name'] = post.get('name')
+        data['email'] = post.get('email')
+        data['company'] = post.get('company')
+        data['is_company'] = post.get('is_company')
         data['ip'] = request.headers.get('X-Forwarded-For', request.remote_addr)
         data['created_at'] = dt.now()
         try:

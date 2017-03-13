@@ -66,7 +66,7 @@ leadBlogApp.controller('mainController', function($scope, $http) {
         //enviando as variáveis do cliente pro servidor
 
         $http({
-            url: "http://127.0.0.1:5000/api", //http://127.0.0.1:5000/api
+            url: "http://seorganizareventos.herokuapp.com/api", //http://127.0.0.1:5000/api
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             data: jsonString

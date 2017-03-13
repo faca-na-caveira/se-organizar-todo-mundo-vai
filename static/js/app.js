@@ -21,17 +21,13 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', functio
 			controller  : 'aboutController'
 		})
 
-		// rota da pagina contato
-		.when('/contact', {
-			templateUrl : '/static/partials/contact.html',
-			controller  : 'contactController'
+		// rotas estaticas de postagens
+		.when('/posts/os-primeiros-passos-dos-produtores-de-eventos', {
+			templateUrl : '/static/partials/posts/os-primeiros-passos-dos-produtores-de-eventos.html'
 		})
 
-		//postagens
-		// rota da pagina contato
-		.when('/ten_tips', {
-			templateUrl : '/static/partials/ten_tips.html',
-			controller  : 'tenTipsController'
+		.when('/posts/10-dicas-para-fazer-o-checklist-do-seu-evento', {
+			templateUrl : '/static/partials/posts/10-dicas-para-fazer-o-checklist-do-seu-evento.html'
 		})
 
 		.when('/thanks', {
@@ -52,17 +48,11 @@ leadBlogApp.controller('mainController', function($scope, $http) {
 
 	$('.slider').slider();
 
-	// $('.carousel.carousel-slider').carousel({
-	// 	fullWidth: true,
-	// 	duration: 300
-	// });
-
-	// setInterval(function(){
-	// 	$('.carousel').carousel('next');
-	// }, 5000);
-
 	$(".button-collapse").sideNav();
-	$('.modal').modal();
+	$('.modal').modal({
+		dismissible: false
+	});
+
 
 	$scope.enviarCadastro = function(){
 
@@ -72,23 +62,25 @@ leadBlogApp.controller('mainController', function($scope, $http) {
         obj.is_company = $scope.tipo_pessoa;
         obj.company = $scope.empresa;
         var jsonString= JSON.stringify(obj);
-       // alert(jsonString);
 
         //enviando as variáveis do cliente pro servidor
+
         $http({
             url: "https://seorganizareventos.herokuapp.com/api", //http://127.0.0.1:5000/api
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             data: jsonString
             }).then(function(success) {
-               $('#modal_lead').modal('close');
+				// Se tudo der certo, então limpe as váriaveis.
+				$scope.nome = "";
+				$scope.email = "";
+				$scope.empresa = "";
+				$scope.tipo_pessoa = false;
+                $('#modal_lead').modal('close');
+                Materialize.toast('Cadastrado com sucesso!!!', 4000)
             });
 
-        //resetando as variaveis
-		$scope.nome = "";
-		$scope.email = "";
-		$scope.empresa = "";
-		$scope.tipo_pessoa = false;
+
 	}
 });
 

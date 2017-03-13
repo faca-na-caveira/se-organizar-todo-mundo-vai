@@ -13,30 +13,29 @@
 	<link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body ng-controller="mainController">
-	<header>
-	</header>
-	<nav>
-		<div class="nav-wrapper grey lighten-4">
-			<a href="#" class="brand-logo black-text col s2">
-				<div class="landscape logo">
-					<img class="responsive-img" src="/static/images/logo.png">
-				</div>
-			</a>
-			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li>
-					<div class="square">
-						<img class="circle" src="/static/images/symbol.png">
+	<nav class="grey lighten-4">
+		<div class="container">
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo black-text col s2">
+					<div class="landscape logo">
+						<img class="responsive-img" src="/static/images/logo.png">
 					</div>
-				</li>
-				<li><a class="black-text" href="#">HOME</a></li>
-		        <li><a class="black-text" href="#/about">SOBRE</a></li>
-		        <li><a class="black-text" href="#/contact">CONTATO</a></li>
-			</ul>
-			<ul id="mobile-demo" class="side-nav">
-				<li><a class="black-text" href="#">HOME</a></li>
-		        <li><a class="black-text" href="#/about">SOBRE</a></li>
-		        <li><a class="black-text" href="#/contact">CONTATO</a></li>
-			</ul>
+				</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li>
+						<div class="square logo-icon">
+							<img class="circle" src="/static/images/symbol.png">
+						</div>
+					</li>
+					<li><a class="black-text" href="#">HOME</a></li>
+					<li><a class="black-text" href="#/about">SOBRE</a></li>
+				</ul>
+				<ul id="mobile-demo" class="side-nav">
+					<li><a class="black-text" href="#">HOME</a></li>
+					<li><a class="black-text" href="#/about">SOBRE</a></li>
+					<li><a class="black-text" href="#/contact">CONTATO</a></li>
+				</ul>
+			</div>
 		</div>
 	</nav>
 
@@ -44,52 +43,50 @@
 		<!-- angular templating -->
 		<!-- this is where content will be injected -->
 		<div ng-view></div>
-    </main>
-
-	<footer class="page-footer blue-1">
 		<div class="footer">
 			<div class="container center">
-				<h4 class="white-text"><strong>ASSINE!</strong> Receba nosso conteúdo em primeira mão e arrase no seu evento</h4>
+				<h4 class="white-text"><strong>ASSINE!</strong> Receba nosso conteúdo em primeira mão e arrase no seu evento!</h4>
 				<div class="row">
-					<a class="btn waves-effect white black-text" href="#modal_lead">CADASTRE-SE GRÁTIS</a>
+					<a class="btn-large waves-effect white black-text" href="#modal_lead">CADASTRE-SE GRÁTIS</a>
 				</div>
 			</div>
 		</div>
-		<div class="row black margin-b-0">
-			<div class="col s2">
-				<h6 class="white-text"><a href="#">HOME</a></h6>
-			</div>
-	        <div class="col s2">
-	        	<h6 class="white-text"><a href="#/about">SOBRE</a></h6>
-	        </div>
-	        <div class="col s3">
-	        	<h6 class="white-text">PARCEIROS</h6>
-	        	<div class="landscape">
-	        		<a href="#"><img src="/static/images/partner.png"></a>
+		<footer class="page-footer black">
+			<div class="container">
+				<div class="row">
+					<div class="col s12 m4">
+						<h6 class="white-text">PARCEIROS</h6>
+						<div class="landscape">
+							<a href="#"><img alt="jn2 ecommerce expert" src="/static/images/partner.png"></a>
+						</div>
+					</div>
+					<div class="col s12 m4">
+						<h6 class="white-text"><a href="#/contact">CONTATO</a></h6>
+						<p class="white-text">contato@seorganizareventos.com.br</p>
+					</div>
+					<div class="col s12 m4">
+						<h6 class="white-text">SIGA-NOS</h6>
+						<div class="row">
+							<div class="col s6 square">
+								<a href="https://www.facebook.com/seorganizartodomundovai/?fref=ts" target="_blank"><img src="/static/images/facebook.png"></a>
+							</div>
+							<div class="col s6 square">
+								<a href="#"><img src="/static/images/youtube.png"></a>
+							</div>
+						</div>
+					</div>
 				</div>
-	        </div>
-	        <div class="col s3">
-	        	<h6 class="white-text"><a href="#/contact">CONTATO</a></h6>
-	        </div>
-	        <div class="col s2">
-	        	<h6 class="white-text">SIGA-NOS</h6>
-	        	<div class="row">
-	        		<div class="col s6 square">
-	        			<a href="#"><img src="/static/images/facebook.png"></a>
-	        		</div>
-	        		<div class="col s6 square">
-	        			<a href="#"><img src="/static/images/youtube.png"></a>
-	        		</div>
-	        	</div>
-	        </div>
-		</div>
-	</footer>
+			</div>
+		</footer>
+
+    </main>
 
 	<div id="modal_lead" class="modal modal-lead black">
-		<div class="modal-content center">
-			<h3 class="white-text"><b>ASSINE!</b></h4>
-			<h4 class="white-text">Receba nosso conteúdo em primeira mão e arrase no seu evento!</h5>
-			<form name="leadForm">
+		<form name="leadForm">
+			<div class="modal-content center">
+				<h3 class="white-text"><b>ASSINE!</b></h3>
+				<h4 class="white-text">Receba nosso conteúdo em primeira mão e arrase no seu evento!</h4>
+
 				<div class="switch">
 					<label class="white-text">
 						PESSOA FÍSICA
@@ -108,11 +105,18 @@
 				</div>
 				<div class="input-field" ng-show="tipo_pessoa">
 					<input id="empresa" type="text" alt="Empresa" class="white-text" ng-model="empresa">
-					<label for="email">EMPRESA</label>
+					<label for="empresa">EMPRESA</label>
 				</div>
-				<button type="button" class="btn-large waves-effect waves-light blue-1" ng-click="enviarCadastro()">ENVIAR</button>
-			</form>
-		</div>
+
+				<div class="button-actions">
+					<button type="submit" class="btn-large waves-effect waves-light blue-1 right" ng-click="enviarCadastro()">
+						ENVIAR
+						<i class="material-icons right">send</i>
+					</button>
+				</div>
+
+			</div>
+		</form>
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

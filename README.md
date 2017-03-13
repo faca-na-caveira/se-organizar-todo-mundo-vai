@@ -4,8 +4,8 @@ Gama Experience #04 - BH - Assignment #1
 
 Frontend feito em:
 
-- AngularJS 1.5x
-- Material Design Lite
+- AngularJS 1.6.2
+- Materialize
 
 API Rest feita com:
 

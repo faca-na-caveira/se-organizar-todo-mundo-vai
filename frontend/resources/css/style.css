@@ -1,0 +1,58 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+h6 a {
+	color: white;
+	text-decoration: none;
+}
+
+.landscape {
+    height: 85px;
+    width: 120px;
+}
+
+.square {
+    height: 45px;
+    width: 45px;
+    margin-top: 0.7rem;
+}
+
+.sm-square {
+    height: 25px;
+    width: 25px;
+}
+
+.logo {
+	margin-left: 1rem;
+}
+
+.footer {
+	bottom: 0;
+	height: 10rem;
+	background-color: #009bdb;
+}
+
+.carousel-footer {
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+	border: 1px solid;
+	height: 40px;
+}
+
+.carousel-footer h2{
+	margin: 0;
+	text-align: left;
+}

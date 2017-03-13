@@ -1,6 +1,10 @@
+import os
+
 import pytz
 from flask import Flask
+from flask import render_template
 from flask import request
+from flask import send_file
 from flask_restful import inputs, reqparse, Resource, Api
 from flask_pymongo import PyMongo
 from pymongo.errors import DuplicateKeyError
@@ -24,8 +28,8 @@ parser.add_argument('email', required=True, help="Email cannot be blank!")
 parser.add_argument('name', required=True, help="Name cannot be blank")
 parser.add_argument('is_company', type=inputs.boolean)
 
-class Producer(Resource):
 
+class Producer(Resource):
     def post(self):
         """
         1 - Get current date and hour (now), and save with BRT Timezone!!!
@@ -49,6 +53,12 @@ class Producer(Resource):
 
 api = Api(app)
 api.add_resource(Producer, "/api", endpoint="producers")
+
+
+@app.route("/")
+def index():
+    return render_template('index.html')
+
 
 if __name__ == '__main__':
     app.run(debug=DEBUG)

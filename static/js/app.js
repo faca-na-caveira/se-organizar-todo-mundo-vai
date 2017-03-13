@@ -8,19 +8,19 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', function($routeProvid
 
 		// rota da pagina inicial
 		.when('/', {
-			templateUrl : 'pages/home.html',
+			templateUrl : '/static/partials/home.html',
 			controller  : 'mainController'
 		})
 
 		// rota da pagina sobre
 		.when('/about', {
-			templateUrl : 'pages/about.html',
+			templateUrl : '/static/partials/about.html',
 			controller  : 'aboutController'
 		})
 
 		// rota da pagina contato
 		.when('/contact', {
-			templateUrl : 'pages/contact.html',
+			templateUrl : '/static/partials/contact.html',
 			controller  : 'contactController'
 		})
 

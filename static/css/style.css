@@ -56,3 +56,11 @@ h6 a {
 	margin: 0;
 	text-align: left;
 }
+
+.modal-lead {
+	opacity: 0.8 !important;
+}
+
+.blue-1 {
+	background-color: #009bdb;
+}

@@ -66,7 +66,7 @@ leadBlogApp.controller('mainController', function($scope, $http) {
         //enviando as variáveis do cliente pro servidor
 
         $http({
-            url: "http://seorganizareventos.herokuapp.com/api", //http://127.0.0.1:5000/api
+            url: "https://seorganizareventos.herokuapp.com/api", //http://127.0.0.1:5000/api
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             data: jsonString
@@ -76,7 +76,8 @@ leadBlogApp.controller('mainController', function($scope, $http) {
 				$scope.email = "";
 				$scope.empresa = "";
 				$scope.tipo_pessoa = false;
-               $('#modal_lead').modal('close');
+                $('#modal_lead').modal('close');
+                Materialize.toast('Cadastrado com sucesso!!!', 4000)
             });
 
 

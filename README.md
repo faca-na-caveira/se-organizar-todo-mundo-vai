@@ -73,4 +73,4 @@ https://devcenter.heroku.com/articles/keys
 git push heroku master
 ```
 
-Site: https://facanacav-blog.herokuapp.com/
+Site: https://www.seorganizareventos.com.br

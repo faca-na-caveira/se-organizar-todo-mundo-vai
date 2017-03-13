@@ -73,4 +73,4 @@ https://devcenter.heroku.com/articles/keys
 git push heroku master
 ```
 
-Site: https://www.seorganizareventos.com.br
+Site: http://www.seorganizareventos.com.br

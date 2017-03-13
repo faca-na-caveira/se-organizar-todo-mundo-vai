@@ -30,7 +30,10 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', function($routeProvid
 }]);
 
 leadBlogApp.controller('mainController', function($scope) {
-	$scope.message = 'Everyone come and see how good I look!';
+	$scope.nome = "";
+	$scope.email = "";
+	$scope.cargo = "";
+	$scope.tipo_pessoa = false;
 
 	$('.carousel.carousel-slider').carousel({
 		fullWidth: true,
@@ -42,12 +45,28 @@ leadBlogApp.controller('mainController', function($scope) {
 	}, 5000);
 
 	$(".button-collapse").sideNav();
+	$('.modal').modal();
+
+	$scope.enviarCadastro = function(){
+		//só pegar os valores dessas variaveis abaixo
+		//e enviar pra api
+		// $scope.nome = "";
+		// $scope.email = "";
+		// $scope.cargo = "";
+		// $scope.tipo_pessoa = false;
+
+		//resetando as variaveis
+		$scope.nome = "";
+		$scope.email = "";
+		$scope.cargo = "";
+		$scope.tipo_pessoa = false;
+	}
 });
 
 leadBlogApp.controller('aboutController', function($scope) {
-	$scope.message = 'Look! I am an about page.';
+	$scope.message = '';
 });
 
 leadBlogApp.controller('contactController', function($scope) {
-	$scope.message = 'Contact us! JK. This is just a demo.';
+	$scope.message = '';
 });

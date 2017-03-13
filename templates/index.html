@@ -48,7 +48,7 @@
 			<div class="container center">
 				<h4 class="white-text"><strong>ASSINE!</strong> Receba nosso conteúdo em primeira mão e arrase no seu evento</h4>
 				<div class="row">
-					<button class="btn waves-effect white black-text" type="button">CADASTRE-SE GRÁTIS</button>
+					<a class="btn waves-effect white black-text" href="#modal_lead">CADASTRE-SE GRÁTIS</a>
 				</div>
 			</div>
 		</div>
@@ -84,6 +84,36 @@
 	        </div>
 		</div>
 	</footer>
+
+	<div id="modal_lead" class="modal modal-lead black">
+		<div class="modal-content center">
+			<h3 class="white-text"><b>ASSINE!</b></h4>
+			<h4 class="white-text">Receba nosso conteúdo em primeira mão e arrase no seu evento!</h5>
+			<form name="leadForm">
+				<div class="switch">
+					<label class="white-text">
+						PESSOA FÍSICA
+						<input type="checkbox" ng-model="tipo_pessoa">
+						<span class="lever"></span>
+						PESSOA JURÍDICA
+					</label>
+				</div>
+				<div class="input-field">
+					<input id="nome" type="text" alt="Nome" class="white-text" ng-model="nome">
+					<label for="nome" class="center">NOME</label>
+				</div>
+				<div class="input-field">
+					<input id="email" type="email" alt="E-mail" class="white-text" ng-model="email">
+					<label for="email">NOME</label>
+				</div>
+				<div class="input-field" ng-show="tipo_pessoa">
+					<input id="cargo" type="text" alt="Cargo" class="white-text" ng-model="cargo">
+					<label for="email">CARGO</label>
+				</div>
+				<button type="button" class="btn-large waves-effect waves-light blue-1" ng-click="enviarCadastro()">ENVIAR</button>
+			</form>
+		</div>
+	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>

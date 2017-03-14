@@ -42,6 +42,21 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider','Analyti
 			controller: 'postController'
 		})
 
+		.when('/posts/como-fazer-o-primeiro-evento-da-minha-empresa', {
+			templateUrl : '/static/partials/posts/como-fazer-o-primeiro-evento-da-minha-empresa.html',
+			controller: 'postController'
+		})
+
+		.when('/posts/2-dicas-de-ouro-para-divulgar-o-evento-da-sua-empresa', {
+			templateUrl : '/static/partials/posts/2-dicas-de-ouro-para-divulgar-o-evento-da-sua-empresa.html',
+			controller: 'postController'
+		})
+
+		.when('/posts/saiba-o-que-oferecer-de-diferencial-no-evento-de-sua-empresa', {
+			templateUrl : '/static/partials/posts/saiba-o-que-oferecer-de-diferencial-no-evento-de-sua-empresa.html',
+			controller: 'postController'
+		})
+
 		.when('/agradecimento', {
 			templateUrl : '/static/partials/thanks.html',
 			controller  : 'thanksController'

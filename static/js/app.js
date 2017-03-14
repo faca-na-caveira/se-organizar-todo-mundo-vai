@@ -7,6 +7,7 @@ var leadBlogApp = angular.module('leadBlogApp',['ngRoute', 'angular-google-analy
 leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider','AnalyticsProvider', function($routeProvider, $locationProvider, $qProvider, AnalyticsProvider) {
     $qProvider.errorOnUnhandledRejections(false);
 	$locationProvider.html5Mode(true);
+	$locationProvider.hashPrefix('!');
 	$routeProvider
 
 		// rota da pagina inicial
@@ -91,9 +92,9 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider','Analyti
 			templateUrl : '/static/partials/posts/saiba-o-que-oferecer-de-diferencial-no-evento-de-sua-empresa.html',
 			controller: 'postController',
 			seoSettings: {
-				'title': '2 dicas de ouro para divulgar o evento da sua empresa',
-				'metaDescription': 'Com essas dicas infalíveis você conseguirá atrair o público para o seu evento e encantá-lo com o que você tem a oferecer!',
-				'metaKeywords': 'divulgação do evento, evento corporativo, minha empresa'
+				'title': 'Saiba o que oferecer de diferencial no evento de sua empresa',
+				'metaDescription': 'O que é atrativo no seu evento? Saiba como agir para cada tipo de público relacionado!',
+				'metaKeywords': 'diferencial, meu evento, evento corporativo'
 			}
 		})
 

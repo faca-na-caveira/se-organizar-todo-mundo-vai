@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col s12 m8 offset-m2">
     		<div class="center">
-	    		<form name="leadForm">
+	    		<form name="leadForm" ng-submit="submitForm(leadForm.$valid)" novalidate>
 					<div class="center">
 						<h3><b>ASSINE!</b></h3>
 						<h4>Receba nosso conteúdo em primeira mão e arrase no seu evento!</h4>
@@ -26,12 +26,14 @@
 								PESSOA JURÍDICA
 							</label>
 						</div>
-						<div class="input-field">
+						<div class="input-field" ng-class="{ 'has-error' : leadForm.name.$invalid && !leadForm.name.$pristine }">
 							<input id="nome" type="text" alt="Nome" ng-model="nome" required>
+							<p ng-show="leadForm.name.$invalid && !leadForm.name.$pristine" class="help-block">Seu nome é obrigatório</p>
 							<label for="nome" class="center">NOME</label>
 						</div>
-						<div class="input-field">
+						<div class="input-field" ng-class="{ 'has-error' : leadForm.email.$invalid && !leadForm.email.$pristine }">
 							<input id="email" type="email" alt="E-mail" ng-model="email" required>
+							 <p ng-show="leadForm.email.$invalid && !leadForm.email.$pristine" class="help-block">Informe um e-mail válido.</p>
 							<label for="email">E-MAIL</label>
 						</div>
 						<div class="input-field" ng-show="tipo_pessoa">
@@ -39,7 +41,7 @@
 							<label for="empresa">EMPRESA</label>
 						</div>
 						<div class="clearfix">
-							<button type="submit" ng-click="enviarCadastro()" class="btn-large waves-effect waves-light blue-1 right">
+							<button type="submit" ng-click="enviarCadastro()" class="btn-large waves-effect waves-light blue-1 right" ng-disabled="leadForm.$invalid">
 								ENVIAR
 								<i class="material-icons right">send</i>
 							</button>

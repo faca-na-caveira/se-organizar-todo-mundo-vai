@@ -117,7 +117,13 @@ leadBlogApp.controller('registerController', function($scope, $http, $location) 
 				$scope.tipo_pessoa = false;
                 $scope.show_lead_conversion = false;
                 $location.path( "/agradecimento" );
-            });
+            }).catch(function(error){
+                if(error.status === 400 && error.data.dup_item){
+                    Materialize.toast('Esse email já existe! Digite outro e-mail.', 6000, 'red');
+                }else{
+                    Materialize.toast('Oh oh! Algo de errado aconteceu no nosso servidor! Entre em contato conosco e reporte o problema.', 6000, 'red');
+                }
+        });
 	}
 });
 

@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col s12 m8 offset-m2">
     		<div class="center">
-	    		<form name="leadForm" ng-submit="submitForm(leadForm.$valid)" novalidate>
+	    		<form name="leadForm" novalidate>
 					<div class="center">
 						<h3><b>ASSINE!</b></h3>
 						<h4>Receba nosso conteúdo em primeira mão e arrase no seu evento!</h4>
@@ -27,18 +27,17 @@
 							</label>
 						</div>
 						<div class="input-field" ng-class="{ 'has-error' : leadForm.name.$invalid && !leadForm.name.$pristine }">
-							<input id="nome" type="text" alt="Nome" ng-model="nome" required>
-							<p ng-show="leadForm.name.$invalid && !leadForm.name.$pristine" class="help-block">Seu nome é obrigatório</p>
-							<label for="nome" class="center">NOME</label>
+							<input id="nome" name="name" type="text" class="validate" alt="Nome" ng-model="nome" required>
+							<label for="nome" class="left-align" data-error="É necessário digitar seu nome!">NOME</label>
+
 						</div>
-						<div class="input-field" ng-class="{ 'has-error' : leadForm.email.$invalid && !leadForm.email.$pristine }">
-							<input id="email" type="email" alt="E-mail" ng-model="email" required>
-							 <p ng-show="leadForm.email.$invalid && !leadForm.email.$pristine" class="help-block">Informe um e-mail válido.</p>
-							<label for="email">E-MAIL</label>
+						<div class="input-field" ng-class="{ 'has-error' : leadForm.email.$invalid && !leadForm.email.$pristine  }" >
+							<input id="email" name="email" type="email" class="validate" alt="E-mail" ng-model="email"  required>
+							<label for="email" class="left-align" data-error="Digite um e-mail válido!">E-MAIL</label>
 						</div>
 						<div class="input-field" ng-show="tipo_pessoa">
-							<input id="empresa" type="text" alt="Empresa" ng-model="empresa">
-							<label for="empresa">EMPRESA</label>
+							<input id="empresa" type="text" alt="Empresa" ng-model="empresa" class="validate">
+							<label for="empresa" class="left-align">EMPRESA</label>
 						</div>
 						<div class="clearfix">
 							<button type="submit" ng-click="enviarCadastro()" class="btn-large waves-effect waves-light blue-1 right" ng-disabled="leadForm.$invalid">

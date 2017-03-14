@@ -17,16 +17,18 @@
 	<nav class="grey lighten-4">
 		<div class="container">
 			<div class="nav-wrapper">
-				<a href="#" class="brand-logo black-text col s2">
+				<a href="#" class="brand-logo black-text">
 					<div class="landscape logo">
 						<img class="responsive-img" src="/static/images/logo.png">
 					</div>
 				</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li>
-						<div class="square logo-icon">
-							<img class="circle" src="/static/images/symbol.png">
-						</div>
+						<a href="#" class="">
+							<div class="square">
+								<img class="circle" src="/static/images/symbol.png">
+							</div>
+						</a>
 					</li>
 					<li><a class="black-text" href="#">HOME</a></li>
 					<li><a class="black-text" href="#/about">SOBRE</a></li>
@@ -44,7 +46,7 @@
 		<!-- angular templating -->
 		<!-- this is where content will be injected -->
 		<div ng-view></div>
-		<div class="footer">
+		<div class="footer" ng-show="show_lead_conversion">
 			<div class="container center">
 				<h4 class="white-text"><strong>ASSINE!</strong> Receba nosso conteúdo em primeira mão e arrase no seu evento!</h4>
 				<div class="row">
@@ -52,13 +54,13 @@
 				</div>
 			</div>
 		</div>
-		<footer class="page-footer black">
+		<footer class="page-footer black center">
 			<div class="container">
-				<div class="row">
+				<div class="row margin-b-0">
 					<div class="col s12 m4">
 						<h6 class="white-text">PARCEIROS</h6>
 						<div class="landscape">
-							<a href="#"><img alt="jn2 ecommerce expert" src="/static/images/partner.png"></a>
+							<a href="https://www.jn2.com.br/"><img alt="jn2 ecommerce expert" src="/static/images/partner.png"></a>
 						</div>
 					</div>
 					<div class="col s12 m4">
@@ -67,19 +69,18 @@
 					</div>
 					<div class="col s12 m4">
 						<h6 class="white-text">SIGA-NOS</h6>
-						<div class="row">
+						<div class="row center">
 							<div class="col s6 square">
-								<a href="https://www.facebook.com/seorganizartodomundovai/?fref=ts" target="_blank"><img src="/static/images/facebook.png"></a>
+								<a href="https://www.facebook.com/seorganizartodomundovai/?fref=ts" target="_blank"><img src="/static/images/facebook.png" alt="pagina facebook"></a>
 							</div>
 							<div class="col s6 square">
-								<a href="#"><img src="/static/images/youtube.png"></a>
+								<a href="#"  target="_blank"><img src="/static/images/youtube.png" alt="canal youtube"></a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</footer>
-
     </main>
 
 	<div id="modal_lead" class="modal modal-lead black">

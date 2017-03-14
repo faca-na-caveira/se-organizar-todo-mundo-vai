@@ -28,10 +28,11 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', 'Analyt
 		})
 
 		.when('/posts/10-dicas-para-fazer-o-checklist-do-seu-evento', {
-			templateUrl : '/static/partials/posts/10-dicas-para-fazer-o-checklist-do-seu-evento.html'
+			templateUrl : '/static/partials/posts/10-dicas-para-fazer-o-checklist-do-seu-evento.html',
+			controller: 'tenTipsController'
 		})
 
-		.when('/thanks', {
+		.when('/agradecimento', {
 			templateUrl : '/static/partials/thanks.html',
 			controller  : 'thanksController'
 		})
@@ -41,11 +42,12 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', 'Analyt
 		});
 }]);
 
-leadBlogApp.controller('mainController', function($scope, $http) {
+leadBlogApp.controller('mainController', function($scope, $http, $location) {
+	$scope.show_lead_conversion = true;
 	$scope.nome = "";
 	$scope.email = "";
 	$scope.empresa = "";
-	$scope.tipo_pessoa = false;
+	$scope.tipo_pessoa = true;
 
 	$('.slider').slider();
 
@@ -78,10 +80,9 @@ leadBlogApp.controller('mainController', function($scope, $http) {
 				$scope.empresa = "";
 				$scope.tipo_pessoa = false;
                 $('#modal_lead').modal('close');
-                Materialize.toast('Cadastrado com sucesso!!!', 4000)
+                $scope.show_lead_conversion = false;
+                $location.path( "/agradecimento" );
             });
-
-
 	}
 });
 
@@ -94,7 +95,10 @@ leadBlogApp.controller('contactController', function($scope) {
 });
 
 leadBlogApp.controller('thanksController', function($scope) {
-	$scope.message = '';
+	$('.slider').slider({
+		indicators: false
+	});
+	$('.slider').slider('pause');
 });
 
 leadBlogApp.controller('tenTipsController', function($scope) {

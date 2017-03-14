@@ -57,6 +57,21 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider','Analyti
 			controller: 'postController'
 		})
 
+		.when('/posts/como-tirar-o-evento-da-sua-empresa-do-papel', {
+			templateUrl : '/static/partials/posts/como-tirar-o-evento-da-sua-empresa-do-papel.html',
+			controller: 'postController'
+		})
+
+		.when('/posts/como-nao-ter-prejuizo-com-o-evento-da-sua-empresa', {
+			templateUrl : '/static/partials/posts/como-nao-ter-prejuizo-com-o-evento-da-sua-empresa.html',
+			controller: 'postController'
+		})
+
+		.when('/posts/formas-de-viabilizar-o-evento-da-sua-empresa-sem-gastar-nada', {
+			templateUrl : '/static/partials/posts/formas-de-viabilizar-o-evento-da-sua-empresa-sem-gastar-nada.html',
+			controller: 'postController'
+		})
+
 		.when('/agradecimento', {
 			templateUrl : '/static/partials/thanks.html',
 			controller  : 'thanksController'

@@ -2,13 +2,14 @@
 <html ng-app="leadBlogApp">
 <head>
 	<meta charset="UTF-8">
-	<meta property="og:description" name="description" content="{_ngMeta.description_}">
-	<meta name="keywords" content="{_ngMeta.metaKeywords_}">
+	{% raw %}
+	<meta name="description" content="{{ngMeta.description}}">
+	<meta name="keywords" content="{{ngMeta.metaKeywords}}">
+	{% endraw %}
 	<meta name="author" content="Se Organizar Eventos">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<meta name="google-site-verification" content="Y0X66uq9BsT2B-V7JSYU5SxzQxePAU92-rL4D7RaFP0" />
-    <meta property="og:title" content="{_ngMeta.title_}">
 	<title ng-bind="ngMeta.title"></title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">

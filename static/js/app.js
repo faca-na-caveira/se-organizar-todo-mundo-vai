@@ -1,12 +1,12 @@
  'use strict';
 
 // Cria o modulo e seu nome: leadBlogApp
-var leadBlogApp = angular.module('leadBlogApp',['ngRoute']);
+var leadBlogApp = angular.module('leadBlogApp',['ngRoute', 'angular-google-analytics']);
 
 // Configura rotas
-leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', function($routeProvider, $locationProvider, $qProvider) {
+leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider','AnalyticsProvider', function($routeProvider, $locationProvider, $qProvider, AnalyticsProvider) {
     $qProvider.errorOnUnhandledRejections(false);
-	$locationProvider.hashPrefix('');
+	$locationProvider.html5Mode(true);
 	$routeProvider
 
 		// rota da pagina inicial
@@ -44,7 +44,12 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', functio
 		.otherwise({
 			redirectTo:'/'
 		});
+
+		AnalyticsProvider.setAccount('UA-93553744-1');
 }]);
+
+leadBlogApp.run(['Analytics', function(Analytics) { }]);
+
 
 leadBlogApp.controller('mainController', function($scope, $http, $location) {
 	initComponents();
@@ -54,7 +59,12 @@ leadBlogApp.controller('mainController', function($scope, $http, $location) {
 	$scope.fazerCadastro = function () {
 		$scope.show_lead_conversion = false;
         $location.path("/cadastro");
-	}
+	};
+		// disqus_identifier: 'seorganizareventos',
+	$scope.disqusConfig = {
+		disqus_shortname: 'seorganizareventos',
+		disqus_url: 'seorganizareventos.com.br'
+	};
 });
 
 leadBlogApp.controller('aboutController', function($scope) {

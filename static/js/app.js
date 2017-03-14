@@ -1,12 +1,11 @@
  'use strict';
 
 // Cria o modulo e seu nome: leadBlogApp
-var leadBlogApp = angular.module('leadBlogApp', ['ngRoute', 'angular-google-analytics']);
+var leadBlogApp = angular.module('leadBlogApp', ['ngRoute']);
 
 // Configura rotas
-leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', 'AnalyticsProvider', function($routeProvider, $locationProvider, $qProvider, AnalyticsProvider) {
+leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', function($routeProvider, $locationProvider, $qProvider) {
     $qProvider.errorOnUnhandledRejections(false);
-    AnalyticsProvider.setAccount('UA-93553744-1');
 	$locationProvider.hashPrefix('');
 	$routeProvider
 
@@ -17,7 +16,7 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', 'Analyt
 		})
 
 		// rota da pagina sobre
-		.when('/about', {
+		.when('/sobre', {
 			templateUrl : '/static/partials/about.html',
 			controller  : 'aboutController'
 		})
@@ -37,25 +36,24 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', 'Analyt
 			controller  : 'thanksController'
 		})
 
+		.when('/cadastro', {
+			templateUrl : '/static/partials/register.html',
+			controller  : 'registerController'
+		})
+
 		.otherwise({
 			redirectTo:'/'
 		});
 }]);
 
 leadBlogApp.controller('mainController', function($scope, $http, $location) {
+	initComponents();
+
 	$scope.show_lead_conversion = true;
 	$scope.nome = "";
 	$scope.email = "";
 	$scope.empresa = "";
 	$scope.tipo_pessoa = true;
-
-	$('.slider').slider();
-
-	$(".button-collapse").sideNav();
-	$('.modal').modal({
-		dismissible: true
-	});
-
 
 	$scope.enviarCadastro = function(){
 
@@ -79,10 +77,14 @@ leadBlogApp.controller('mainController', function($scope, $http, $location) {
 				$scope.email = "";
 				$scope.empresa = "";
 				$scope.tipo_pessoa = false;
-                $('#modal_lead').modal('close');
                 $scope.show_lead_conversion = false;
                 $location.path( "/agradecimento" );
             });
+	}
+
+	$scope.fazerCadastro = function () {
+		$scope.show_lead_conversion = false;
+        $location.path("/cadastro");
 	}
 });
 
@@ -95,19 +97,58 @@ leadBlogApp.controller('contactController', function($scope) {
 });
 
 leadBlogApp.controller('thanksController', function($scope) {
-	$('.slider').slider({
-		indicators: false
-	});
-	$('.slider').slider('pause');
+	initFixedSlide();
 });
 
 leadBlogApp.controller('tenTipsController', function($scope) {
+	initFixedSlide();
+});
+
+leadBlogApp.controller('registerController', function($scope) {
+	initFixedSlide();
+	$scope.show_lead_conversion = false;
+	$scope.nome = "";
+	$scope.email = "";
+	$scope.empresa = "";
+	$scope.tipo_pessoa = true;
+
+	$scope.enviarCadastro = function(){
+
+        var obj = new Object();
+        obj.name = $scope.nome;
+        obj.email  = $scope.email;
+        obj.is_company = $scope.tipo_pessoa;
+        obj.company = $scope.empresa;
+        var jsonString= JSON.stringify(obj);
+
+        //enviando as variáveis do cliente pro servidor
+
+        $http({
+            url: "https://seorganizareventos.herokuapp.com/api", //http://127.0.0.1:5000/api
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            data: jsonString
+            }).then(function(success) {
+				// Se tudo der certo, então limpe as váriaveis.
+				$scope.nome = "";
+				$scope.email = "";
+				$scope.empresa = "";
+				$scope.tipo_pessoa = false;
+                $scope.show_lead_conversion = false;
+                $location.path( "/agradecimento" );
+            });
+	}
+});
+
+function initComponents() {
+	//iniciando componentes
+	$('.slider').slider();
+	$(".button-collapse").sideNav();
+}
+
+function initFixedSlide() {
 	$('.slider').slider({
 		indicators: false
 	});
 	$('.slider').slider('pause');
-});
-
-leadBlogApp.run(['Analytics', function(Analytics){
-	Analytics.pageView();
-}]);
+}

@@ -36,12 +36,8 @@ class Producer(Resource):
         returns an error message.
         :return:
         """
-        post = request.get_json()
         data = parser.parse_args()
-        data['name'] = post.get('name')
-        data['email'] = post.get('email')
-        data['company'] = post.get('company')
-        data['is_company'] = post.get('is_company')
+        print(data)
         data['ip'] = request.headers.get('X-Forwarded-For', request.remote_addr)
         data['created_at'] = dt.now()
         try:

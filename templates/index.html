@@ -31,12 +31,13 @@
 						</a>
 					</li>
 					<li><a class="black-text" href="#">HOME</a></li>
-					<li><a class="black-text" href="#/about">SOBRE</a></li>
+					<li><a class="black-text" href="#/sobre">SOBRE</a></li>
+					<li><a class="black-text" href="#/cadastro">CADASTRE-SE!</a></li>
 				</ul>
 				<ul id="mobile-demo" class="side-nav">
 					<li><a class="black-text" href="#">HOME</a></li>
-					<li><a class="black-text" href="#/about">SOBRE</a></li>
-					<li><a class="black-text" href="#/contact">CONTATO</a></li>
+					<li><a class="black-text" href="#/sobre">SOBRE</a></li>
+					<li><a class="black-text" href="#/cadastro">CADASTRE-SE!</a></li>
 				</ul>
 			</div>
 		</div>
@@ -50,7 +51,7 @@
 			<div class="container center">
 				<h4 class="white-text"><strong>ASSINE!</strong> Receba nosso conteúdo em primeira mão e arrase no seu evento!</h4>
 				<div class="row">
-					<button class="btn-large waves-effect white black-text" data-target="modal_lead">CADASTRE-SE GRÁTIS</button>
+					<button class="btn-large waves-effect white black-text" ng-click="fazerCadastro()">CADASTRE-SE GRÁTIS</button>
 				</div>
 			</div>
 		</div>
@@ -59,8 +60,13 @@
 				<div class="row margin-b-0">
 					<div class="col s12 m4">
 						<h6 class="white-text">PARCEIROS</h6>
-						<div class="landscape">
-							<a href="https://www.jn2.com.br/"><img alt="jn2 ecommerce expert" src="/static/images/partner.png"></a>
+						<div class="center">
+							<div class="landscape">
+								<a href="https://www.jn2.com.br/" target="_blank"><img alt="jn2 ecommerce expert" src="/static/images/partner.png"></a>
+							</div>
+							<div class="landscape">
+								<a href="https://www.facebook.com/whitesheep.official/?fref=ts" target="_blank"><img alt="peluzo whitesheep white sheep dj deejay" src="/static/images/white-sheep.png"></a>
+							</div>
 						</div>
 					</div>
 					<div class="col s12 m4">
@@ -82,44 +88,6 @@
 			</div>
 		</footer>
     </main>
-
-	<div id="modal_lead" class="modal modal-lead black">
-		<form name="leadForm">
-			<div class="modal-content center">
-				<h3 class="white-text"><b>ASSINE!</b></h3>
-				<h4 class="white-text">Receba nosso conteúdo em primeira mão e arrase no seu evento!</h4>
-
-				<div class="switch">
-					<label class="white-text">
-						PESSOA FÍSICA
-						<input type="checkbox" ng-model="tipo_pessoa">
-						<span class="lever"></span>
-						PESSOA JURÍDICA
-					</label>
-				</div>
-				<div class="input-field">
-					<input id="nome" type="text" alt="Nome" class="white-text" ng-model="nome" required>
-					<label for="nome" class="center">NOME</label>
-				</div>
-				<div class="input-field">
-					<input id="email" type="email" alt="E-mail" class="white-text" ng-model="email" required>
-					<label for="email">E-MAIL</label>
-				</div>
-				<div class="input-field" ng-show="tipo_pessoa">
-					<input id="empresa" type="text" alt="Empresa" class="white-text" ng-model="empresa">
-					<label for="empresa">EMPRESA</label>
-				</div>
-
-				<div class="button-actions">
-					<button type="submit" class="btn-large waves-effect waves-light blue-1 right" ng-click="enviarCadastro()">
-						ENVIAR
-						<i class="material-icons right">send</i>
-					</button>
-				</div>
-
-			</div>
-		</form>
-	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>

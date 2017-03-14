@@ -106,5 +106,4 @@ leadBlogApp.controller('tenTipsController', function($scope) {
 
 leadBlogApp.run(['Analytics', function(Analytics){
 	Analytics.pageView();
-	console.log(Analytics)
 }]);

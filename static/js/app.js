@@ -37,6 +37,11 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider','Analyti
 			controller: 'postController'
 		})
 
+		.when('/posts/aprenda-ja-o-que-fazer-se-tiver-que-cancelar-um-evento', {
+			templateUrl : '/static/partials/posts/aprenda-ja-o-que-fazer-se-tiver-que-cancelar-um-evento.html',
+			controller: 'postController'
+		})
+
 		.when('/agradecimento', {
 			templateUrl : '/static/partials/thanks.html',
 			controller  : 'thanksController'

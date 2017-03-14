@@ -49,6 +49,7 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', functio
 leadBlogApp.controller('mainController', function($scope, $http, $location) {
 	initComponents();
 
+    $scope.show_lead_conversion = true;
 
 	$scope.fazerCadastro = function () {
 		$scope.show_lead_conversion = false;

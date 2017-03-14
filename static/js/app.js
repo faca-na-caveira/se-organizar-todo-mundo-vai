@@ -23,12 +23,18 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider','Analyti
 
 		// rotas estaticas de postagens
 		.when('/posts/os-primeiros-passos-dos-produtores-de-eventos', {
-			templateUrl : '/static/partials/posts/os-primeiros-passos-dos-produtores-de-eventos.html'
+			templateUrl : '/static/partials/posts/os-primeiros-passos-dos-produtores-de-eventos.html',
+			controller: 'postController'
 		})
 
 		.when('/posts/10-dicas-para-fazer-o-checklist-do-seu-evento', {
 			templateUrl : '/static/partials/posts/10-dicas-para-fazer-o-checklist-do-seu-evento.html',
-			controller: 'tenTipsController'
+			controller: 'postController'
+		})
+
+		.when('/posts/3-dicas-para-nao-desperdicar-tempo-na-organizacao-do-seu-evento', {
+			templateUrl : '/static/partials/posts/3-dicas-para-nao-desperdicar-tempo-na-organizacao-do-seu-evento.html',
+			controller: 'postController'
 		})
 
 		.when('/agradecimento', {
@@ -79,7 +85,7 @@ leadBlogApp.controller('thanksController', function($scope) {
 	initFixedSlide();
 });
 
-leadBlogApp.controller('tenTipsController', function($scope) {
+leadBlogApp.controller('postController', function($scope) {
 	initFixedSlide();
 });
 

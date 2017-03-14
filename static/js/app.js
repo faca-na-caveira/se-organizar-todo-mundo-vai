@@ -1,11 +1,12 @@
  'use strict';
 
 // Cria o modulo e seu nome: leadBlogApp
-var leadBlogApp = angular.module('leadBlogApp', ['ngRoute']);
+var leadBlogApp = angular.module('leadBlogApp', ['ngRoute', 'angular-google-analytics']);
 
 // Configura rotas
-leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', function($routeProvider, $locationProvider, $qProvider) {
+leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', 'AnalyticsProvider', function($routeProvider, $locationProvider, $qProvider, AnalyticsProvider) {
     $qProvider.errorOnUnhandledRejections(false);
+    AnalyticsProvider.setAccount('UA-93553744-1');
 	$locationProvider.hashPrefix('');
 	$routeProvider
 
@@ -102,3 +103,8 @@ leadBlogApp.controller('tenTipsController', function($scope) {
 	});
 	$('.slider').slider('pause');
 });
+
+leadBlogApp.run(['Analytics', function(Analytics){
+	Analytics.pageView();
+	console.log(Analytics)
+}]);

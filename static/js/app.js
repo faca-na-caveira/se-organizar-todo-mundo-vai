@@ -53,7 +53,7 @@ leadBlogApp.controller('mainController', function($scope, $http, $location) {
 
 	$(".button-collapse").sideNav();
 	$('.modal').modal({
-		dismissible: false
+		dismissible: true
 	});
 
 

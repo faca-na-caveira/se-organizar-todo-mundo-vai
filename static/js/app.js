@@ -18,43 +18,83 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider','Analyti
 		// rota da pagina sobre
 		.when('/sobre', {
 			templateUrl : '/static/partials/about.html',
-			controller  : 'aboutController'
+			controller  : 'aboutController',
+			seoSettings: {
+				'title': 'Se organizar, todo mundo vai | Sobre nós',
+				'metaDescription': 'Tudo que é preciso saber para garantir o sucesso de um evento, você vai encontrar aqui no Se Organizar, Todo Mundo Vai.',
+				'metaKeywords': 'sobre organizar eventos, sucesso de um evento, organizar'
+			}
 		})
 
 		// rotas estaticas de postagens
 		.when('/posts/os-primeiros-passos-dos-produtores-de-eventos', {
 			templateUrl : '/static/partials/posts/os-primeiros-passos-dos-produtores-de-eventos.html',
-			controller: 'postController'
+			controller: 'postController',
+			seoSettings: {
+				'title': 'Os primeiros passos dos produtores de eventos',
+				'metaDescription': 'Se você deseja começar uma carreira de produtor de eventos, o essencial para dar o primeiro passo já está disponível para você!',
+				'metaKeywords': 'realizar eventos, ser um produtor de eventos, sucesso no seu evento'
+			}
 		})
 
 		.when('/posts/10-dicas-para-fazer-o-checklist-do-seu-evento', {
 			templateUrl : '/static/partials/posts/10-dicas-para-fazer-o-checklist-do-seu-evento.html',
-			controller: 'postController'
+			controller: 'postController',
+			seoSettings: {
+				'title': '10 dicas para fazer o checklist do seu evento',
+				'metaDescription': 'Fazer um checklist é fundamental para a organização e o sucesso do seu evento. Saiba como fazer aqui!',
+				'metaKeywords': 'realizar eventos, checklist de evento, organizacao do evento'
+			}
 		})
 
 		.when('/posts/3-dicas-para-nao-desperdicar-tempo-na-organizacao-do-seu-evento', {
 			templateUrl : '/static/partials/posts/3-dicas-para-nao-desperdicar-tempo-na-organizacao-do-seu-evento.html',
-			controller: 'postController'
+			controller: 'postController',
+			seoSettings: {
+				'title': '3 dicas para não desperdiçar tempo na organização do seu evento',
+				'metaDescription': 'Não perca a cabeça organizando os seus eventos! Aqui colocamos o básico para você se preparar adequadamente e criar um momento incrível!',
+				'metaKeywords': 'dicas para organizar seu evento'
+			}
 		})
 
 		.when('/posts/aprenda-ja-o-que-fazer-se-tiver-que-cancelar-um-evento', {
 			templateUrl : '/static/partials/posts/aprenda-ja-o-que-fazer-se-tiver-que-cancelar-um-evento.html',
-			controller: 'postController'
+			controller: 'postController',
+			seoSettings: {
+				'title': 'Aprenda já o que fazer se tiver que cancelar um evento',
+				'metaDescription': 'Deu ruim e foi preciso cancelar o evento? O processo não precisa ser doloroso se feito da maneira certa.',
+				'metaKeywords': 'cancelar evento, organizar após o cancelamento'
+			}
 		})
 
 		.when('/posts/como-fazer-o-primeiro-evento-da-minha-empresa', {
 			templateUrl : '/static/partials/posts/como-fazer-o-primeiro-evento-da-minha-empresa.html',
-			controller: 'postController'
+			controller: 'postController',
+			seoSettings: {
+				'title': 'Como fazer o primeiro evento da minha empresa',
+				'metaDescription': 'Nós mostramos como sua empresa vai poder realizar eventos para atrair e se conectar com diferentes públicos muito importantes!',
+				'metaKeywords': 'primeiro evento da minha empresa, eventos corporativos'
+			}
 		})
 
 		.when('/posts/2-dicas-de-ouro-para-divulgar-o-evento-da-sua-empresa', {
 			templateUrl : '/static/partials/posts/2-dicas-de-ouro-para-divulgar-o-evento-da-sua-empresa.html',
-			controller: 'postController'
+			controller: 'postController',
+			seoSettings: {
+				'title': '2 dicas de ouro para divulgar o evento da sua empresa',
+				'metaDescription': 'Com essas dicas infalíveis você conseguirá atrair o público para o seu evento e encantá-lo com o que você tem a oferecer!',
+				'metaKeywords': 'divulgação do evento, evento corporativo, minha empresa'
+			}
 		})
 
 		.when('/posts/saiba-o-que-oferecer-de-diferencial-no-evento-de-sua-empresa', {
 			templateUrl : '/static/partials/posts/saiba-o-que-oferecer-de-diferencial-no-evento-de-sua-empresa.html',
-			controller: 'postController'
+			controller: 'postController',
+			seoSettings: {
+				'title': '2 dicas de ouro para divulgar o evento da sua empresa',
+				'metaDescription': 'Com essas dicas infalíveis você conseguirá atrair o público para o seu evento e encantá-lo com o que você tem a oferecer!',
+				'metaKeywords': 'divulgação do evento, evento corporativo, minha empresa'
+			}
 		})
 
 		.when('/agradecimento', {
@@ -64,7 +104,12 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider','Analyti
 
 		.when('/cadastro', {
 			templateUrl : '/static/partials/register.html',
-			controller  : 'registerController'
+			controller  : 'registerController',
+			seoSettings: {
+				'title': 'Assine nosso conteúdo, TOTALMENTE GRÁTIS!',
+				'metaDescription': 'Receba nosso conteúdo em primeira mão e arrase no seu evento!',
+				'metaKeywords': 'realizar eventos, como fazer eventos, conteúdo em primeira mão'
+			}
 		})
 
 		.otherwise({
@@ -74,7 +119,42 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider','Analyti
 		AnalyticsProvider.setAccount('UA-93553744-1');
 }]);
 
-leadBlogApp.run(['Analytics', function(Analytics) { }]);
+leadBlogApp.run(['$rootScope', 'Analytics', function($rootScope, Analytics) {
+
+	/* quando alterar a rota dinâmicamente, mude o título e as configurações de seo,
+	definidos na rota */
+
+
+
+
+	$rootScope.$on('$routeChangeSuccess', function(event, current){
+		// Se não houver nenhuma configuração de SEO na ROTA, por default utilizar esta:
+		var defaultSeoSettings = {
+			'title': 'Se organizar, todo mundo vai | Blog para Produtores e Organizadores de Eventos',
+			'metaDescription': 'Blog para produtores e Organizadores de Eventos',
+			'metaKeywords': 'produtores de evento organizado, importância de ser organizado em um evento, importância da organização do evento'
+		};
+
+		/*
+			Verificação para haver se pra esta ROTA, existe uma configuração de SEO,
+			Caso não, utilize a configuração padrão!
+		*/
+
+		if (current.$$route.seoSettings){
+			$rootScope.seoSettings = {
+				'title': current.$$route.seoSettings.title,
+				'metaDescription': current.$$route.seoSettings.metaDescription,
+				'metaKeywords': current.$$route.seoSettings.metaKeywords
+			};
+		}else{
+			$rootScope.seoSettings = {
+                'title': defaultSeoSettings.title,
+                'metaDescription': defaultSeoSettings.metaDescription,
+				'metaKeywords':  defaultSeoSettings.metaKeywords
+            }
+		}
+	})
+}]);
 
 
 leadBlogApp.controller('mainController', function($scope, $http, $location) {
@@ -86,11 +166,7 @@ leadBlogApp.controller('mainController', function($scope, $http, $location) {
 		$scope.show_lead_conversion = false;
         $location.path("/cadastro");
 	};
-		// disqus_identifier: 'seorganizareventos',
-	$scope.disqusConfig = {
-		disqus_shortname: 'seorganizareventos',
-		disqus_url: 'seorganizareventos.com.br'
-	};
+
 });
 
 leadBlogApp.controller('aboutController', function($scope) {

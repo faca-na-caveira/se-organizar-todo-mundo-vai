@@ -49,38 +49,7 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', functio
 leadBlogApp.controller('mainController', function($scope, $http, $location) {
 	initComponents();
 
-	$scope.show_lead_conversion = true;
-	$scope.nome = "";
-	$scope.email = "";
-	$scope.empresa = "";
-	$scope.tipo_pessoa = true;
-
-	$scope.enviarCadastro = function(){
-
-        var obj = new Object();
-        obj.name = $scope.nome;
-        obj.email  = $scope.email;
-        obj.is_company = $scope.tipo_pessoa;
-        obj.company = $scope.empresa;
-        var jsonString= JSON.stringify(obj);
-
-        //enviando as variáveis do cliente pro servidor
-
-        $http({
-            url: "https://seorganizareventos.herokuapp.com/api", //http://127.0.0.1:5000/api
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            data: jsonString
-            }).then(function(success) {
-				// Se tudo der certo, então limpe as váriaveis.
-				$scope.nome = "";
-				$scope.email = "";
-				$scope.empresa = "";
-				$scope.tipo_pessoa = false;
-                $scope.show_lead_conversion = false;
-                $location.path( "/agradecimento" );
-            });
-	}
+    $scope.show_lead_conversion = true;
 
 	$scope.fazerCadastro = function () {
 		$scope.show_lead_conversion = false;
@@ -104,7 +73,7 @@ leadBlogApp.controller('tenTipsController', function($scope) {
 	initFixedSlide();
 });
 
-leadBlogApp.controller('registerController', function($scope) {
+leadBlogApp.controller('registerController', function($scope, $http, $location) {
 	initFixedSlide();
 	$scope.show_lead_conversion = false;
 	$scope.nome = "";
@@ -122,7 +91,6 @@ leadBlogApp.controller('registerController', function($scope) {
         var jsonString= JSON.stringify(obj);
 
         //enviando as variáveis do cliente pro servidor
-
         $http({
             url: "https://seorganizareventos.herokuapp.com/api", //http://127.0.0.1:5000/api
             method: "POST",

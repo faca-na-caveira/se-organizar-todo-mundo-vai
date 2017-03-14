@@ -1,7 +1,7 @@
  'use strict';
 
 // Cria o modulo e seu nome: leadBlogApp
-var leadBlogApp = angular.module('leadBlogApp', ['ngRoute']);
+var leadBlogApp = angular.module('leadBlogApp',['ngRoute']);
 
 // Configura rotas
 leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', function($routeProvider, $locationProvider, $qProvider) {
@@ -81,13 +81,26 @@ leadBlogApp.controller('registerController', function($scope, $http, $location) 
 	$scope.empresa = "";
 	$scope.tipo_pessoa = true;
 
+    $scope.submitForm = function(isValid) {
+
+        // verifica se o formulário é válido
+        if (isValid) {
+            //alert('Formulário OK');
+        }
+
+    };
+
 	$scope.enviarCadastro = function(){
 
         var obj = new Object();
         obj.name = $scope.nome;
         obj.email  = $scope.email;
         obj.is_company = $scope.tipo_pessoa;
-        obj.company = $scope.empresa;
+        if(obj.is_company != false){
+            obj.company = $scope.empresa;
+        }else
+            obj.company = "";
+
         var jsonString= JSON.stringify(obj);
 
         //enviando as variáveis do cliente pro servidor

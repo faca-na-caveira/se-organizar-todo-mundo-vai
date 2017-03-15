@@ -200,11 +200,10 @@ leadBlogApp.controller('mainController', function($scope, $http, $location) {
 });
 
 leadBlogApp.controller('aboutController', function($scope) {
-	$scope.message = '';
+	initFixedSlide();
 });
 
 leadBlogApp.controller('contactController', function($scope) {
-	$scope.message = '';
 });
 
 leadBlogApp.controller('thanksController', function($scope) {

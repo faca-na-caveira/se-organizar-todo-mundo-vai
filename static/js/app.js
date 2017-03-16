@@ -72,6 +72,28 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', 'Analyt
 			controller: 'postController'
 		})
 
+		.when('/posts/prepare-se-para-organizar-uma-festa-universitaria', {
+			templateUrl : '/static/partials/posts/prepare-se-para-organizar-uma-festa-universitaria.html',
+			controller: 'postController',
+			data: {
+				meta: {
+                    'title': 'Prepare-se para organizar uma festa universitária',
+                    'description': 'Você quer fazer festa univesitária, calourada, open-bar (ou muito mais)? Confira algumas dicas que vão te preparar bem para isso!',
+                }
+			}
+		})
+
+		.when('/posts/o-que-fazer-depois-de-um-evento', {
+			templateUrl : '/static/partials/posts/o-que-fazer-depois-de-um-evento.html',
+			controller: 'postController',
+			data: {
+				meta: {
+                    'title': 'O que fazer depois de um evento?',
+                    'description': 'O blog "Se Organizar, Todo Mundo Vai" traz esse vídeo pra você se orientar com o que fazer no pós-evento para poder melhorar sempre!',
+                }
+			}
+		})
+
 		.when('/agradecimento', {
 			templateUrl : '/static/partials/thanks.html',
 			controller  : 'thanksController'
@@ -80,6 +102,18 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', 'Analyt
 		.when('/cadastro', {
 			templateUrl : '/static/partials/register.html',
 			controller  : 'registerController'
+		})
+
+		.when('/cadastro2', {
+			templateUrl : '/static/partials/register2.html',
+			controller  : 'registerController',
+			data: {
+				meta: {
+                    'title': 'Assine nosso conteúdo, TOTALMENTE GRÁTIS!',
+                    'description': 'Receba nosso conteúdo em primeira mão e arrase no seu evento!',
+                    'metaKeywords': 'realizar eventos, como fazer eventos, conteúdo em primeira mão'
+                }
+			}
 		})
 
 		.otherwise({
@@ -172,6 +206,7 @@ leadBlogApp.controller('registerController', function($scope, $http, $location) 
                 }
         });
 	}
+
 });
 
 function initComponents() {

@@ -62,13 +62,16 @@ def index(path):
     seoSettings = {
         'title': 'Se organizar, todo mundo vai',
         'description': 'Blog para produtores e Organizadores de Eventos',
-        'keywords': 'produtores de evento organizado, importância de ser organizado em um evento, importância da organização do evento'
+        'keywords': 'produtores de evento organizado, importância de ser organizado em um evento, importância da organização do evento',
+        'image': request.host_url + 'static/images/logo.jpg'
     }
 
     if path in seo_pages.keys():
         seoSettings['title'] = seo_pages[path]['title']
         seoSettings['description'] = seo_pages[path]['description']
         seoSettings['keywords'] = seo_pages[path]['keywords']
+        seoSettings['image'] = request.host_url + seo_pages[path]['image']
+
     return render_template('index.html', seoSettings=seoSettings)
 
 if __name__ == '__main__':

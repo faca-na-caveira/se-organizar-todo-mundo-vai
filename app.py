@@ -1,5 +1,6 @@
 import yaml
 from flask import Flask
+from flask import make_response
 from flask import render_template
 from flask import request
 from flask_restful import inputs, reqparse, Resource, Api
@@ -73,6 +74,15 @@ def index(path):
         seoSettings['image'] = request.host_url + seo_pages[path]['image']
 
     return render_template('index.html', seoSettings=seoSettings)
+
+@app.route("/sitemap.xml", methods=['GET'])
+def sitemap():
+    pages = [request.host_url + page for page in seo_pages.keys()]
+    pages.append(request.host_url)
+    sitemap_xml = render_template('sitemap.xml', pages=pages)
+    response = make_response(sitemap_xml)
+    response.headers["Content-Type"] = "application/xml"
+    return response
 
 if __name__ == '__main__':
     app.run(debug=DEBUG)

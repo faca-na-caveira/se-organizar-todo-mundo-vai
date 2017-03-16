@@ -54,7 +54,7 @@ class Producer(Resource):
 api = Api(app)
 api.add_resource(Producer, "/api", endpoint="producers")
 
-seo_pages = yaml.load(open("seoPages.yml"))
+seo_pages = yaml.load(open("seoPages.yml", encoding="utf8"))
 
 
 @app.route("/", defaults={'path': ''})

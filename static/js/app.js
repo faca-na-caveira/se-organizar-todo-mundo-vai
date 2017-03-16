@@ -186,7 +186,7 @@ leadBlogApp.controller('registerController', function($scope, $http, $location) 
 
         //enviando as variáveis do cliente pro servidor
         $http({
-            url: "http://127.0.0.1:5000/api", //http://www.seorganizareventos.com.br/api
+            url: "http://www.seorganizareventos.com.br/api", //http://127.0.0.1:5000/api
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             data: jsonString

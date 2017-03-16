@@ -78,9 +78,9 @@ cadastro:
   image: static/images/posts/cadastro.jpg
 
 cadastro2:
-  title: Cadastre-se para baixar a planilha de precificação!
-  description: Receba a planilha de precificação para planejar o seu evento e evitar prejuízos!
-  keywords: planilha de precificação, orçamento, prejuizos
+  title: Assine nosso conteúdo,TOTALMENTE GRÁTIS!
+  description: Receba e-books e planilhas para planejar o seu evento e fazer o seu evento acontecer!
+  keywords: planilha de precificação, orçamento, prejuizos, ebooks, planejamento, evento
   image: static/images/posts/cadastro.jpg
 
 sobre:

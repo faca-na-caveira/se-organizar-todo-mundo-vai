@@ -1,3 +1,4 @@
+import yaml
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -52,12 +53,23 @@ class Producer(Resource):
 api = Api(app)
 api.add_resource(Producer, "/api", endpoint="producers")
 
+seo_pages = yaml.load(open("seoPages.yml"))
+
 
 @app.route("/", defaults={'path': ''})
 @app.route("/<path:path>")
 def index(path):
-    return render_template('index.html')
+    seoSettings = {
+        'title': 'Se organizar, todo mundo vai',
+        'description': 'Blog para produtores e Organizadores de Eventos',
+        'keywords': 'produtores de evento organizado, importância de ser organizado em um evento, importância da organização do evento'
+    }
 
+    if path in seo_pages.keys():
+        seoSettings['title'] = seo_pages[path]['title']
+        seoSettings['description'] = seo_pages[path]['description']
+        seoSettings['keywords'] = seo_pages[path]['keywords']
+    return render_template('index.html', seoSettings=seoSettings)
 
 if __name__ == '__main__':
     app.run(debug=DEBUG)

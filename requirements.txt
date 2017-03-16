@@ -13,3 +13,6 @@ python-decouple==3.0
 pytz==2016.10
 six==1.10.0
 Werkzeug==0.12
+PyYAML==3.12
+Pyexcel-xlsx==0.3.0
+Pyexcel==0.4.4

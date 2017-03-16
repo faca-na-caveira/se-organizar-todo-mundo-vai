@@ -7,7 +7,6 @@ var leadBlogApp = angular.module('leadBlogApp',['ngRoute', 'angular-google-analy
 leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', '$interpolateProvider', 'AnalyticsProvider', 'ngMetaProvider', function($routeProvider, $locationProvider, $qProvider, $interpolateProvider, AnalyticsProvider, ngMetaProvider) {
     $qProvider.errorOnUnhandledRejections(false);
 	$locationProvider.html5Mode(true);
-	$locationProvider.hashPrefix('!');
 	ngMetaProvider.useTitleSuffix(true);
 	ngMetaProvider.setDefaultTitle('Se organizar, todo mundo vai');
 	ngMetaProvider.setDefaultTitleSuffix(' | Blog para Produtores e Organizadores de Eventos ');

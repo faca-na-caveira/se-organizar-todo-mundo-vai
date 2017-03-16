@@ -82,6 +82,17 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', 'Analyt
 			controller: 'postController'
 		})
 
+        .when('/posts/ebook-6-passos-essenciais-para-a-realizacao-de-um-evento-corporativo', {
+			templateUrl : '/static/partials/posts/ebook-6-passos-essenciais-para-a-realizacao-de-um-evento-corporativo.html',
+			controller: 'postController',
+			data: {
+				meta: {
+                    'title': 'E-book: 6 passos essenciais para a realização de um evento corporativo',
+                    'description': 'A equipe do "Se Organizar Todo Mundo Vai!" preparou um guia com 6 passos fundamentais na organização de um evento empresarial. Confira!',
+                }
+			}
+		})
+
 		.when('/agradecimento', {
 			templateUrl : '/static/partials/thanks.html',
 			controller  : 'thanksController'

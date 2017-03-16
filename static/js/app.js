@@ -123,7 +123,7 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', 'Analyt
 		AnalyticsProvider.setAccount('UA-93553744-1');
 }]);
 
-leadBlogApp.run(['$rootScope', 'Analytics', function($rootScope, Analytics) {
+leadBlogApp.run(['Analytics', function(Analytics) {
 }]);
 
 

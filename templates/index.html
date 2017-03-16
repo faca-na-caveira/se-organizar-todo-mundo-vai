@@ -2,15 +2,15 @@
 <html ng-app="leadBlogApp">
 <head>
 	<meta charset="UTF-8">
-	{% raw %}
-	<meta name="description" content="{{ngMeta.description}}">
-	<meta name="keywords" content="{{ngMeta.metaKeywords}}">
-	{% endraw %}
+	<meta name="description" content="{{seoSettings.description}}">
+	<meta name="keywords" content="{{seoSettings.keywords}}">
 	<meta name="author" content="Se Organizar Eventos">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<meta name="google-site-verification" content="Y0X66uq9BsT2B-V7JSYU5SxzQxePAU92-rL4D7RaFP0" />
-	<title ng-bind="ngMeta.title"></title>
+	<title>{{seoSettings.title}}</title>
+	<meta property="og:title" content="{{seoSettings.title}}"/>
+	<meta property="og:description" content="{{seoSettings.description}}"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 	<link rel="stylesheet" href="/static/css/style.css">
@@ -90,7 +90,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js"></script>
 	<script src="/static/node_modules/angular-google-analytics/dist/angular-google-analytics.min.js"></script>
-	<script src="/static/node_modules/ng-meta/dist/ngMeta.min.js"></script>
 	<script src="/static/js/app.js"></script>
 
 	<!--<script>-->

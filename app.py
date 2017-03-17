@@ -3,6 +3,7 @@ from flask import Flask
 from flask import make_response
 from flask import render_template
 from flask import request
+from flask import send_from_directory
 from flask_restful import inputs, reqparse, Resource, Api
 from flask_pymongo import PyMongo
 from pymongo.errors import DuplicateKeyError
@@ -75,6 +76,7 @@ def index(path):
 
     return render_template('index.html', seoSettings=seoSettings)
 
+
 @app.route("/sitemap.xml", methods=['GET'])
 def sitemap():
     pages = [request.host_url + page for page in seo_pages.keys()]
@@ -83,6 +85,12 @@ def sitemap():
     response = make_response(sitemap_xml)
     response.headers["Content-Type"] = "application/xml"
     return response
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory('./static/images/',
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 if __name__ == '__main__':
     app.run(debug=DEBUG)

@@ -4,6 +4,13 @@ body {
 	flex-direction: column;
 }
 
+nav {
+	height: 80px;
+}
+
+.nav-wrapper {
+	margin: 9px 0px;
+}
 main {
 	flex: 1 0 auto;
 }
@@ -158,4 +165,9 @@ article#post{
 
 .indicator-item.active {
 	background-color: black !important;
+}
+
+/* button-collapse */
+.button-collapse{
+	color: #009BDB;
 }

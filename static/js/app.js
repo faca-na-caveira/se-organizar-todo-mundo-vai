@@ -84,7 +84,12 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', 'Analyt
 
         .when('/posts/ebook-6-passos-essenciais-para-a-realizacao-de-um-evento-corporativo', {
 			templateUrl : '/static/partials/posts/ebook-6-passos-essenciais-para-a-realizacao-de-um-evento-corporativo.html',
-			controller: 'postController',
+			controller: 'postController'
+		})
+
+        .when('/posts/sabe-os-detalhes-legais-para-seu-evento-ocorrer-aprenda-agora', {
+			templateUrl : '/static/partials/posts/sabe-os-detalhes-legais-para-seu-evento-ocorrer-aprenda-agora.html',
+			controller: 'postController'
 		})
 
 		.when('/agradecimento', {

@@ -175,3 +175,11 @@ article#post{
 .rounded{
 	border-radius: 25px;
 }
+
+#social-medias{
+	display: inline-block
+}
+
+#social-medias .youtube{
+	margin-top: 5px;
+}

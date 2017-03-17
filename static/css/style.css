@@ -171,3 +171,7 @@ article#post{
 .button-collapse{
 	color: #009BDB;
 }
+
+.rounded{
+	border-radius: 25px;
+}

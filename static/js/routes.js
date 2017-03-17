@@ -1,10 +1,12 @@
- 'use strict';
+'use strict';
 
-// Cria o modulo e seu nome: leadBlogApp
-var leadBlogApp = angular.module('leadBlogApp',['ngRoute', 'angular-google-analytics']);
+angular.module('leadBlogApp',['ngRoute', 'angular-google-analytics', 'leadBlogApp.controllers', 'leadBlogApp.filters', 'leadBlogApp.directives'])
+
+.run(['Analytics', function(Analytics) {
+}])
 
 // Configura rotas
-leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', 'AnalyticsProvider', function($routeProvider, $locationProvider, $qProvider, AnalyticsProvider) {
+.config(['$routeProvider', '$locationProvider', '$qProvider', 'AnalyticsProvider', function($routeProvider, $locationProvider, $qProvider, AnalyticsProvider) {
     $qProvider.errorOnUnhandledRejections(false);
 	$locationProvider.html5Mode(true);
 	$routeProvider
@@ -113,102 +115,3 @@ leadBlogApp.config(['$routeProvider', '$locationProvider', '$qProvider', 'Analyt
 
 		AnalyticsProvider.setAccount('UA-93553744-1');
 }]);
-
-leadBlogApp.run(['Analytics', function(Analytics) {
-}]);
-
-
-leadBlogApp.controller('mainController', function($scope, $http, $location) {
-	initComponents();
-
-    $scope.show_lead_conversion = true;
-
-	$scope.fazerCadastro = function () {
-		$scope.show_lead_conversion = false;
-        $location.path("/cadastro");
-	};
-
-});
-
-leadBlogApp.controller('aboutController', function($scope) {
-	initFixedSlide();
-});
-
-leadBlogApp.controller('contactController', function($scope) {
-});
-
-leadBlogApp.controller('thanksController', function($scope) {
-	initFixedSlide();
-});
-
-leadBlogApp.controller('postController', function($scope) {
-	initFixedSlide();
-});
-
-leadBlogApp.controller('registerController', function($scope, $http, $location) {
-	initFixedSlide();
-	$scope.show_lead_conversion = false;
-	$scope.nome = "";
-	$scope.email = "";
-	$scope.empresa = "";
-	$scope.tipo_pessoa = true;
-
-    $scope.submitForm = function(isValid) {
-
-        // verifica se o formulário é válido
-        if (isValid) {
-            //alert('Formulário OK');
-        }
-
-    };
-
-	$scope.enviarCadastro = function(){
-
-        var obj = new Object();
-        obj.name = $scope.nome;
-        obj.email  = $scope.email;
-        obj.is_company = $scope.tipo_pessoa;
-        if(obj.is_company != false){
-            obj.company = $scope.empresa;
-        }else
-            obj.company = "";
-
-        var jsonString= JSON.stringify(obj);
-
-        //enviando as variáveis do cliente pro servidor
-        $http({
-            url: "http://www.seorganizareventos.com.br/api", //http://127.0.0.1:5000/api
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            data: jsonString
-            }).then(function(success) {
-				// Se tudo der certo, então limpe as váriaveis.
-				$scope.nome = "";
-				$scope.email = "";
-				$scope.empresa = "";
-				$scope.tipo_pessoa = false;
-                $scope.show_lead_conversion = false;
-                $location.path( "/agradecimento" );
-            }).catch(function(error){
-                if(error.status === 400 && error.data.dup_item){
-                    Materialize.toast('Esse email já existe! Digite outro e-mail.', 6000, 'red');
-                }else{
-                    Materialize.toast('Oh oh! Algo de errado aconteceu no nosso servidor! Entre em contato conosco e reporte o problema.', 6000, 'red');
-                }
-        });
-	}
-
-});
-
-function initComponents() {
-	//iniciando componentes
-	$('.slider').slider();
-	$(".button-collapse").sideNav();
-}
-
-function initFixedSlide() {
-	$('.slider').slider({
-		indicators: false
-	});
-	$('.slider').slider('pause');
-}

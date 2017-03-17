@@ -1,263 +1,58 @@
-<article>
-	<section>
-		<div class="slider">
-			<ul class="slides">
-				<li>
-					<a href="/posts/10-dicas-para-fazer-o-checklist-do-seu-evento">
-						<img src="/static/images/posts/10-dicas.jpg">
-						<div class="caption center-align">
-							<h3>10 dicas para fazer o checklist do seu evento</h3>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="/posts/os-primeiros-passos-dos-produtores-de-eventos">
-						<img src="/static/images/posts/evento.jpg">
-						<div class="caption center-align">
-							<h3>Os primeiros passos dos Produtores de Eventos</h3>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="/posts/3-dicas-para-nao-desperdicar-tempo-na-organizacao-do-seu-evento">
-						<img src="/static/images/posts/checklist.jpg">
-						<div class="caption center-align">
-							<h3>3 dicas para não desperdiçar tempo na organização do seu evento</h3>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="/posts/aprenda-ja-o-que-fazer-se-tiver-que-cancelar-um-evento">
-						<img src="/static/images/posts/cancelar-evento.jpg">
-						<div class="caption center-align">
-							<h3>Aprenda já o que fazer se tiver que cancelar um evento</h3>
-						</div>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</section>
-</article>
-<article id="blog-posts" class="container">
-	<section>
-		<div class="row">
-			<div class="col s12 m6 l8">
-				<div class="card medium hoverable">
-					<div class="card-image">
-						<img alt="O que fazer depois de um evento?" src="/static/images/posts/pos-evento.jpg">
-						<span class="card-title" >O que fazer depois de um evento?</span>
-					</div>
-					<div class="card-stacked">
-						<div class="card-content">
-							<p>O blog "Se Organizar, Todo Mundo Vai" traz esse vídeo pra você se orientar com o que fazer no pós-evento para poder melhorar sempre!</p>
-						</div>
-						<div class="card-action">
-							<a href="/posts/o-que-fazer-depois-de-um-evento">SAIBA MAIS</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col s12 m6 l4">
-				<div class="card medium hoverable">
-					<div class="card-image">
-						<img alt="Prepare-se para organizar uma festa universitária" src="/static/images/posts/festas-universitarias.jpg">
-						<span class="card-title" >Prepare-se para organizar uma festa universitária</span>
-					</div>
-					<div class="card-stacked">
-						<div class="card-content">
-							<p>Você quer fazer festa univesitária, calourada, open-bar (ou muito mais)? Confira algumas dicas que vão te preparar bem para isso!</p>
-						</div>
-						<div class="card-action">
-							<a href="/posts/prepare-se-para-organizar-uma-festa-universitaria">SAIBA MAIS</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col s12 m6 l4">
-				<div class="card medium hoverable">
-					<div class="card-image">
-							<img alt="E-book: 6 passos essenciais para a realização de um evento corporativo." src="/static/images/posts/ebooks.jpg">
-							<span class="card-title" >E-book: 6 passos essenciais para a realização de um evento corporativo</span>
-					</div>
-					<div class="card-stacked">
-							<div class="card-content">
-								<p>A equipe do <i>"Se Organizar Todo Mundo Vai!"</i> preparou um guia com 6 passos fundamentais na organização de um evento empresarial. Confira!</p>
+<div ng-init="showData()">
+	<article>
+		<section>
+			<div class="slider">
+				<ul class="slides">
+					<li ng-repeat="headPost in headPosts" on-finish-render="ngRepeatFinished">
+						<a ng-href="{{headPost.action}}"></a>
+							<img alt="{{headPost.title}}" ng-src="{{ headPost.imagePath }}">
+							<div class="caption center-align">
+								<h3>{{ headPost.title }}</h3>
 							</div>
-							<div class="card-action">
-							  <a href="/posts/ebook-6-passos-essenciais-para-a-realizacao-de-um-evento-corporativo">SAIBA MAIS</a>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</article>
+	<article id="blog-posts" class="container">
+		<section>
+			<div class="row">
+				<div ng-repeat="post in posts | pagination: curPage * pageSize | limitTo: pageSize">
+					<div ng-class="post.collumnConfig">
+						<div class="card medium hoverable">
+							<div class="card-image">
+								<img alt="{{post.title}}" ng-src="{{ post.imagePath }}">
+								<span class="card-title">{{ post.title }}</span>
 							</div>
-					</div>
-				</div>
-			</div>
-			<div class="col s12 m6 l8">
-				<div class="card medium hoverable">
-					<div class="card-image">
-						<img alt="Aprenda já o que fazer se tiver que cancelar um evento" src="/static/images/posts/cancelar-evento.jpg">
-						<span class="card-title">Aprenda já o que fazer se tiver que cancelar um evento</span>
-					</div>
-					<div class="card-stacked">
-						<div class="card-content">
-						  	<p>Deu ruim e foi preciso cancelar o evento? O processo não precisa ser doloroso se feito da maneira certa.</p>
-						</div>
-						<div class="card-action">
-						  <a href="/posts/aprenda-ja-o-que-fazer-se-tiver-que-cancelar-um-evento">SAIBA MAIS</a>
+							<div class="card-stacked">
+								<div class="card-content">
+									<p>{{ post.content }}</p>
+								</div>
+								<div class="card-action">
+									<a ng-href="{{post.action}}">{{ post.actionTitle }}</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col s12 m6 l6">
-				<div class="card medium hoverable">
-					<div class="card-image">
-						<img alt="Formas de viabilizar o evento da sua empresa sem gastar nada" src="/static/images/posts/6passos6.jpg">
-						<span class="card-title" >Formas de viabilizar o evento da sua empresa sem gastar nada</span>
-					</div>
-					<div class="card-stacked">
-						<div class="card-content">
-						  	<p>Falta grana para fazer o seu evento acontecer? Saiba como você pode torná-lo realidade sem gastar um centavo!</p>
-						</div>
-						<div class="card-action">
-						  <a href="/posts/formas-de-viabilizar-o-evento-da-sua-empresa-sem-gastar-nada">SAIBA MAIS</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col s12 m6 l6">
-				<div class="card medium hoverable">
-					<div class="card-image">
-						<img alt="3 dicas para não desperdiçar tempo na organização do seu evento" src="/static/images/posts/checklist.jpg">
-						<span class="card-title">3 dicas para não desperdiçar tempo na organização do seu evento</span>
-					</div>
-					<div class="card-stacked">
-						<div class="card-content">
-						  	<p>Não perca a cabeça organizando os seus eventos! Aqui colocamos o básico para você se preparar adequadamente e criar um momento incrível!</p>
-						</div>
-						<div class="card-action">
-						  <a href="/posts/3-dicas-para-nao-desperdicar-tempo-na-organizacao-do-seu-evento">SAIBA MAIS</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col s12 m6 l4">
-				<div class="card medium hoverable">
-					<div class="card-image">
-						<img alt="10 dicas para fazer o checklist do seu evento" src="/static/images/posts/10-dicas.jpg">
-						<span class="card-title" >10 dicas para fazer o checklist do seu evento</span>
-					</div>
-					<div class="card-content">
-						<p>
-							Fazer um checklist é fundamental para a organização e o sucesso do seu evento. Saiba como fazer aqui!
-						</p>
-					</div>
-					<div class="card-action">
-						<a href="/posts/10-dicas-para-fazer-o-checklist-do-seu-evento">SAIBA MAIS</a>
-					</div>
-
-				</div>
-			</div>
-			<div class="col s12 m6 l4">
-				<div class="card medium hoverable">
-					<div class="card-image">
-						<img alt="Os primeiros passos dos Produtores de Eventos" src="/static/images/posts/evento.jpg">
-						<span class="card-title" >Os primeiros passos dos Produtores de Eventos</span>
-					</div>
-					<div class="card-stacked">
-						<div class="card-content">
-						  	<p>Se você deseja começar uma carreira de produtor de eventos, o essencial para dar o primeiro passo já está disponível para você!</p>
-						</div>
-						<div class="card-action">
-						  <a href="/posts/os-primeiros-passos-dos-produtores-de-eventos">SAIBA MAIS</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col s12 m6 l4">
-				<div class="card medium hoverable">
-					<div class="card-image">
-						<img alt="Como fazer o primeiro evento da minha empresa" src="/static/images/posts/6passos1.jpg">
-						<span class="card-title" >Como fazer o primeiro evento da minha empresa</span>
-					</div>
-					<div class="card-stacked">
-						<div class="card-content">
-						  	<p>Nós mostramos como sua empresa vai poder realizar eventos para atrair e se conectar com diferentes públicos muito importantes!</p>
-						</div>
-						<div class="card-action">
-						  <a href="/posts/como-fazer-o-primeiro-evento-da-minha-empresa">SAIBA MAIS</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col s12 m6 l6">
-				<div class="card medium hoverable">
-					<div class="card-image">
-						<img alt="Saiba o que oferecer de diferencial no evento de sua empresa" src="/static/images/posts/6passos2.jpg">
-						<span class="card-title" >Saiba o que oferecer de diferencial no evento de sua empresa</span>
-					</div>
-					<div class="card-stacked">
-						<div class="card-content">
-						  	<p>O que é atrativo no seu evento? Saiba como agir para cada tipo de público relacionado!</p>
-						</div>
-						<div class="card-action">
-						  <a href="/posts/saiba-o-que-oferecer-de-diferencial-no-evento-de-sua-empresa">SAIBA MAIS</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col s12 m6 16">
-				<div class="card medium hoverable">
-					<div class="card-image">
-						<img alt="2 dicas de ouro para divulgar o evento da sua empresa" src="/static/images/posts/6passos3.jpg">
-						<span class="card-title" >2 dicas de ouro para divulgar o evento da sua empresa</span>
-					</div>
-					<div class="card-stacked">
-						<div class="card-content">
-						  	<p>Com essas dicas infalíveis você conseguirá atrair o público para o seu evento e encantá-lo com o que você tem a oferecer!</p>
-						</div>
-						<div class="card-action">
-						  <a href="/posts/2-dicas-de-ouro-para-divulgar-o-evento-da-sua-empresa">SAIBA MAIS</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col s12 m6 l6">
-				<div class="card medium hoverable">
-					<div class="card-image">
-						<img alt="Como tirar o evento da sua empresa do papel" src="/static/images/posts/6passos4.jpg">
-						<span class="card-title" >Como tirar o evento da sua empresa do papel</span>
-					</div>
-					<div class="card-stacked">
-						<div class="card-content">
-						  	<p>É hora de colocar a mão na massa. Nesse post, você vai saber o que é preciso fazer o evento acontecer e ser um sucesso.</p>
-						</div>
-						<div class="card-action">
-						  <a href="/posts/como-tirar-o-evento-da-sua-empresa-do-papel">SAIBA MAIS</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col s12 m6 16">
-				<div class="card medium hoverable">
-					<div class="card-image">
-						<img alt="Como não ter prejuízo com o evento da sua empresa" src="/static/images/posts/6passos5.jpg">
-						<span class="card-title" >Como não ter prejuízo com o evento da sua empresa</span>
-					</div>
-					<div class="card-stacked">
-						<div class="card-content">
-						  	<p>Atenção com o bolso: saiba como se planejar direitinho para o seu evento não virar uma dor de cabeça! Se liga que tem bônus pra você aqui!</p>
-						</div>
-						<div class="card-action">
-						  <a href="/posts/como-nao-ter-prejuizo-com-o-evento-da-sua-empresa">SAIBA MAIS</a>
-						</div>
-					</div>
-				</div>
+		</section>
+	</article>
+	<div class="row">
+		<div class="col s12">
+			<div class="center" ng-show="posts.length">
+				<button type="button" class="waves-effect waves-light black btn rounded left" ng-disabled="curPage == 0" ng-click="curPage=curPage-1"><i class="material-icons right">chevron_left</i> ANTERIOR</button>
+				<button type="button" class="waves-effect waves-light black btn rounded right" ng-disabled="curPage >= posts.length/pageSize - 1" ng-click="curPage = curPage+1">PRÓXIMA <i class="material-icons right">chevron_right</i></button>
 			</div>
 		</div>
-	</section>
-</article>
-<div class="footer">
-	<div class="container center">
-		<h4 class="white-text"><strong>ASSINE!</strong> Receba nosso conteúdo em primeira mão e arrase no seu evento!</h4>
-		<div class="row">
-			<button class="btn-large waves-effect white black-text" ng-click="fazerCadastro()">CADASTRE-SE GRÁTIS</button>
+	</div>
+	<div class="footer">
+		<div class="container center">
+			<h4 class="white-text"><strong>ASSINE!</strong> Receba nosso conteúdo em primeira mão e arrase no seu evento!</h4>
+			<div class="row">
+				<button class="btn-large waves-effect white black-text" ng-click="fazerCadastro()">CADASTRE-SE GRÁTIS</button>
+			</div>
 		</div>
 	</div>
 </div>

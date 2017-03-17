@@ -27,7 +27,7 @@
 							</div>
 							<div class="card-stacked">
 								<div class="card-content">
-									<p>{{ post.content }}</p>
+									<p ng-bind-html="post.content | unsafe"></p>
 								</div>
 								<div class="card-action">
 									<a ng-href="{{post.action}}">{{ post.actionTitle }}</a>

@@ -12,10 +12,9 @@ angular.module('leadBlogApp.controllers', [])
 
     $scope.changePage = function(page){
         // Quando mudar de página, rolar para o início dos posts
-        $timeout(function() {
-          $location.hash('blog-posts');
-          $anchorScroll();
-        });
+        // $location.hash();
+        $anchorScroll('blog-posts');
+
 
         return page
     };
@@ -33,8 +32,14 @@ angular.module('leadBlogApp.controllers', [])
                 content: 'A equipe do <i>"Se Organizar Todo Mundo Vai!"</i> preparou um guia com 6 passos fundamentais na organização de um evento empresarial. Confira!',
                 action: '/posts/ebook-6-passos-essenciais-para-a-realizacao-de-um-evento-corporativo',
                 actionTitle: 'SAIBA MAIS'
-            }
-            ,{
+            },{
+                collumnConfig: 'col s12 m6 l6',
+                title: '11 dicas infalíveis para uma festa OPEN BAR',
+                imagePath: '/static/images/posts/11-dicas-infaliveis.jpg',
+                content: 'Everton Marques, o Mamãe, faz festas universitárias desde 2008 e desvenda neste post todos os segredos para o sucesso de um evento open bar.',
+                action: '/posts/11-dicas-infaliveis-para-uma-festa-open-bar',
+                actionTitle: 'SAIBA MAIS'
+            },{
                 collumnConfig: 'col s12 m6 l6',
                 title: 'Sabe os detalhes legais para seu evento ocorrer? Aprenda agora!',
                 imagePath: '/static/images/posts/alvara-funcionamento.jpg',
@@ -43,10 +48,10 @@ angular.module('leadBlogApp.controllers', [])
                 actionTitle: 'SAIBA MAIS'
             },{
                 collumnConfig: 'col s12 m6 l6',
-                title: '11 dicas infalíveis para uma festa OPEN BAR',
-                imagePath: '/static/images/posts/11-dicas-infaliveis.jpg',
-                content: 'Everton Marques, o Mamãe, faz festas universitárias desde 2008 e desvenda neste post todos os segredos para o sucesso de um evento open bar.',
-                action: '/posts/11-dicas-infaliveis-para-uma-festa-open-bar',
+                title: '4 dicas valiosas para arrasar na divulgação do seu evento',
+                imagePath: '/static/images/posts/divulgacao-eficiente.jpg',
+                content: 'A divulgação pode alavancar a audiência do seu evento ou derrubá-la. Por isso, é importante dar atenção a esse item sabendo o que fazer.',
+                action: '/posts/4-dicas-valiosas-para-arrasar-na-divulgacao-do-seu-evento',
                 actionTitle: 'SAIBA MAIS'
             },{
                 collumnConfig: 'col s12 m6 l6',
@@ -70,7 +75,7 @@ angular.module('leadBlogApp.controllers', [])
                 action: '/posts/aprenda-ja-o-que-fazer-se-tiver-que-cancelar-um-evento',
                 actionTitle: 'SAIBA MAIS'
             },{
-                collumnConfig: 'col s12 m6 l8',
+                collumnConfig: 'col s12 m6 l6',
                 title: 'Formas de viabilizar o evento da sua empresa sem gastar nada',
                 imagePath: '/static/images/posts/6passos6.jpg',
                 content: 'Falta grana para fazer o seu evento acontecer? Saiba como você pode torná-lo realidade sem gastar um centavo!',
@@ -84,7 +89,7 @@ angular.module('leadBlogApp.controllers', [])
                 action: '/posts/3-dicas-para-nao-desperdicar-tempo-na-organizacao-do-seu-evento',
                 actionTitle: 'SAIBA MAIS'
             },{
-                collumnConfig: 'col s12 m6 l6',
+                collumnConfig: 'col s12 m6 l8',
                 title: 'Como fazer o primeiro evento da minha empresa',
                 imagePath: '/static/images/posts/6passos1.jpg',
                 content: 'Nós mostramos como sua empresa vai poder realizar eventos para atrair e se conectar com diferentes públicos muito importantes!',
@@ -126,7 +131,7 @@ angular.module('leadBlogApp.controllers', [])
                 action: '/posts/10-dicas-para-fazer-o-checklist-do-seu-evento',
                 actionTitle: 'SAIBA MAIS'
             },{
-                collumnConfig: 'col s12 m6 l12',
+                collumnConfig: 'col s12 m6 l6',
                 title: 'Os primeiros passos dos Produtores de Eventos',
                 imagePath: '/static/images/posts/evento.jpg',
                 content: 'Se você deseja começar uma carreira de produtor de eventos, o essencial para dar o primeiro passo já está disponível para você!',

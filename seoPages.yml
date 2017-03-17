@@ -71,6 +71,18 @@ posts/prepare-se-para-organizar-uma-festa-universitaria:
   keywords: festas universitarias, republicas, calourada, eventos universitarios
   image: static/images/posts/festas-universitarias.jpg
 
+posts/ebook-6-passos-essenciais-para-a-realizacao-de-um-evento-corporativo:
+  title: "E-book: 6 passos essenciais para a realização de um evento corporativo"
+  description: A equipe do "Se Organizar Todo Mundo Vai!" preparou um guia com 6 passos fundamentais na organização de um evento empresarial. Confira!
+  keywords: evento corporativo, fazer eventos, eficiencia, ingressos, empresa
+  image: static/images/posts/ebooks.jpg
+
+posts/sabe-os-detalhes-legais-para-seu-evento-ocorrer-aprenda-agora:
+  title: Sabe os detalhes legais para seu evento ocorrer? Aprenda agora!
+  description: Data, local, estrutura e atrações definidas. Quase tudo pronto para seu evento. Mas e os itens legais, como licenças e alvarás? Saiba mais.
+  keywords: alvara, legalidade do evento, corpo de bombeiros eventos, avcb, eventos
+  image: static/images/posts/alvara-funcionamento.jpg
+
 cadastro: 
   title: Assine nosso conteúdo, TOTALMENTE GRÁTIS!
   description: Receba nosso conteúdo em primeira mão e arrase no seu evento!

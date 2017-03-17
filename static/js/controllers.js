@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('leadBlogApp.controllers', [])
-.controller('mainController', function($scope, $http, $location) {
+.controller('mainController', function($scope, $http, $location, $timeout, $anchorScroll) {
 
     $scope.show_lead_conversion = true;
 
@@ -9,6 +9,17 @@ angular.module('leadBlogApp.controllers', [])
         $scope.show_lead_conversion = false;
         $location.path("/cadastro");
     };
+
+    $scope.changePage = function(page){
+        // Quando mudar de página, rolar para o início dos posts
+        $timeout(function() {
+          $location.hash('blog-posts');
+          $anchorScroll();
+        });
+
+        return page
+    };
+
 
     //paginação
     $scope.showData = function( ){
@@ -22,6 +33,21 @@ angular.module('leadBlogApp.controllers', [])
                 content: 'A equipe do <i>"Se Organizar Todo Mundo Vai!"</i> preparou um guia com 6 passos fundamentais na organização de um evento empresarial. Confira!',
                 action: '/posts/ebook-6-passos-essenciais-para-a-realizacao-de-um-evento-corporativo',
                 actionTitle: 'SAIBA MAIS'
+            }
+            ,{
+                collumnConfig: 'col s12 m6 l6',
+                title: 'Sabe os detalhes legais para seu evento ocorrer? Aprenda agora!',
+                imagePath: '/static/images/posts/alvara-funcionamento.jpg',
+                content: 'Data, local, estrutura e atrações definidas. Quase tudo pronto para seu evento. Mas e os itens legais, como licenças e alvarás? Saiba mais.',
+                action: '/posts/sabe-os-detalhes-legais-para-seu-evento-ocorrer-aprenda-agora',
+                actionTitle: 'SAIBA MAIS'
+            },{
+                collumnConfig: 'col s12 m6 l6',
+                title: '11 dicas infalíveis para uma festa OPEN BAR',
+                imagePath: '/static/images/posts/11-dicas-infaliveis.jpg',
+                content: 'Everton Marques, o Mamãe, faz festas universitárias desde 2008 e desvenda neste post todos os segredos para o sucesso de um evento open bar.',
+                action: '/posts/11-dicas-infaliveis-para-uma-festa-open-bar',
+                actionTitle: 'SAIBA MAIS'
             },{
                 collumnConfig: 'col s12 m6 l6',
                 title: 'O que fazer depois de um evento?',
@@ -30,49 +56,49 @@ angular.module('leadBlogApp.controllers', [])
                 action: '/posts/o-que-fazer-depois-de-um-evento',
                 actionTitle: 'SAIBA MAIS'
             },{
-                collumnConfig: 'col s12 m6 l4',
+                collumnConfig: 'col s12 m6 l6',
                 title: 'Prepare-se para organizar uma festa universitária',
                 imagePath: '/static/images/posts/festas-universitarias.jpg',
                 content: 'Você quer fazer festa univesitária, calourada, open-bar (ou muito mais)? Confira algumas dicas que vão te preparar bem para isso!',
                 action: '/posts/prepare-se-para-organizar-uma-festa-universitaria',
                 actionTitle: 'SAIBA MAIS'
             },{
-                collumnConfig: 'col s12 m6 l4',
+                collumnConfig: 'col s12 m6 l6',
                 title: 'Aprenda já o que fazer se tiver que cancelar um evento',
                 imagePath: '/static/images/posts/cancelar-evento.jpg',
                 content: 'Deu ruim e foi preciso cancelar o evento? O processo não precisa ser doloroso se feito da maneira certa.',
                 action: '/posts/aprenda-ja-o-que-fazer-se-tiver-que-cancelar-um-evento',
                 actionTitle: 'SAIBA MAIS'
             },{
-                collumnConfig: 'col s12 m6 l4',
+                collumnConfig: 'col s12 m6 l8',
                 title: 'Formas de viabilizar o evento da sua empresa sem gastar nada',
                 imagePath: '/static/images/posts/6passos6.jpg',
                 content: 'Falta grana para fazer o seu evento acontecer? Saiba como você pode torná-lo realidade sem gastar um centavo!',
                 action: '/posts/formas-de-viabilizar-o-evento-da-sua-empresa-sem-gastar-nada',
                 actionTitle: 'SAIBA MAIS'
             },{
-                collumnConfig: 'col s12 m6 l6',
+                collumnConfig: 'col s12 m6 l4',
                 title: '3 dicas para não desperdiçar tempo na organização do seu evento',
                 imagePath: '/static/images/posts/checklist.jpg',
                 content: 'Não perca a cabeça organizando os seus eventos! Aqui colocamos o básico para você se preparar adequadamente e criar um momento incrível!',
                 action: '/posts/3-dicas-para-nao-desperdicar-tempo-na-organizacao-do-seu-evento',
                 actionTitle: 'SAIBA MAIS'
             },{
-                collumnConfig: 'col s12 m6 l4',
+                collumnConfig: 'col s12 m6 l6',
                 title: 'Como fazer o primeiro evento da minha empresa',
                 imagePath: '/static/images/posts/6passos1.jpg',
                 content: 'Nós mostramos como sua empresa vai poder realizar eventos para atrair e se conectar com diferentes públicos muito importantes!',
                 action: '/posts/como-fazer-o-primeiro-evento-da-minha-empresa',
                 actionTitle: 'SAIBA MAIS'
             },{
-                collumnConfig: 'col s12 m6 l4',
+                collumnConfig: 'col s12 m6 l6',
                 title: 'Saiba o que oferecer de diferencial no evento de sua empresa',
                 imagePath: '/static/images/posts/6passos2.jpg',
                 content: 'O que é atrativo no seu evento? Saiba como agir para cada tipo de público relacionado!',
                 action: '/posts/saiba-o-que-oferecer-de-diferencial-no-evento-de-sua-empresa',
                 actionTitle: 'SAIBA MAIS'
             },{
-                collumnConfig: 'col s12 m6 l4',
+                collumnConfig: 'col s12 m6 l6',
                 title: '2 dicas de ouro para divulgar o evento da sua empresa',
                 imagePath: '/static/images/posts/6passos3.jpg',
                 content: 'Com essas dicas infalíveis você conseguirá atrair o público para o seu evento e encantá-lo com o que você tem a oferecer!',
@@ -100,7 +126,7 @@ angular.module('leadBlogApp.controllers', [])
                 action: '/posts/10-dicas-para-fazer-o-checklist-do-seu-evento',
                 actionTitle: 'SAIBA MAIS'
             },{
-                collumnConfig: 'col s12 m6 l4',
+                collumnConfig: 'col s12 m6 l12',
                 title: 'Os primeiros passos dos Produtores de Eventos',
                 imagePath: '/static/images/posts/evento.jpg',
                 content: 'Se você deseja começar uma carreira de produtor de eventos, o essencial para dar o primeiro passo já está disponível para você!',
@@ -115,7 +141,7 @@ angular.module('leadBlogApp.controllers', [])
         $scope.numberOfPages = function() {
             return Math.ceil($scope.datalists.length / $scope.pageSize);
         };
-    }
+    };
 
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
         initComponents();

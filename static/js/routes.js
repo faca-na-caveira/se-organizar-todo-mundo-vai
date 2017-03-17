@@ -94,6 +94,16 @@ angular.module('leadBlogApp',['ngRoute', 'angular-google-analytics', 'leadBlogAp
 			controller: 'postController'
 		})
 
+        .when('/posts/11-dicas-infaliveis-para-uma-festa-open-bar', {
+			templateUrl : '/static/partials/posts/11-dicas-infaliveis-para-uma-festa-open-bar.html',
+			controller: 'postController'
+		})
+
+		.when('/posts/4-dicas-valiosas-para-arrasar-na-divulgacao-do-seu-evento', {
+			templateUrl : '/static/partials/posts/4-dicas-valiosas-para-arrasar-na-divulgacao-do-seu-evento.html',
+			controller: 'postController'
+		})
+
 		.when('/agradecimento', {
 			templateUrl : '/static/partials/thanks.html',
 			controller  : 'thanksController'

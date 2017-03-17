@@ -67,7 +67,7 @@ posts/o-que-fazer-depois-de-um-evento:
 
 posts/prepare-se-para-organizar-uma-festa-universitaria:
   title: Prepare-se para organizar uma festa universitária
-  description: Você quer fazer festa univesitária, calourada, open-bar (ou muito mais)? Confira algumas dicas que vão te preparar bem para isso!
+  description: Você quer fazer festa universitária, calourada, open-bar etc? Confira um vídeo com dicas rápidas para te preparar!
   keywords: festas universitarias, republicas, calourada, eventos universitarios
   image: static/images/posts/festas-universitarias.jpg
 
@@ -82,6 +82,18 @@ posts/sabe-os-detalhes-legais-para-seu-evento-ocorrer-aprenda-agora:
   description: Data, local, estrutura e atrações definidas. Quase tudo pronto para seu evento. Mas e os itens legais, como licenças e alvarás? Saiba mais.
   keywords: alvara, legalidade do evento, corpo de bombeiros eventos, avcb, eventos
   image: static/images/posts/alvara-funcionamento.jpg
+
+posts/11-dicas-infaliveis-para-uma-festa-open-bar:
+  title: 11 dicas infalíveis para uma festa OPEN BAR
+  description: Everton Marques, o Mamãe, faz festas universitárias desde 2008 e desvenda neste post todos os segredos para o sucesso de um evento open bar.
+  keywords: dicas infaliveis, open bar, festas universitarias, tudo liberado, bebida liberada, eventos
+  image: static/images/posts/11-dicas-infaliveis.jpg
+
+posts/4-dicas-valiosas-para-arrasar-na-divulgacao-do-seu-evento:
+  title: 4 dicas valiosas para arrasar na divulgação do seu evento
+  description: Everton Marques, o Mamãe, faz festas universitárias desde 2008 e desvenda neste post todos os segredos para o sucesso de um evento open bar.
+  keywords: dicas infaliveis, open bar, festas universitarias, tudo liberado, bebida liberada, eventos
+  image: static/images/posts/11-dicas-infaliveis.jpg
 
 cadastro: 
   title: Assine nosso conteúdo, TOTALMENTE GRÁTIS!

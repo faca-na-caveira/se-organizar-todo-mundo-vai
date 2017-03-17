@@ -4,11 +4,12 @@
 			<div class="slider">
 				<ul class="slides">
 					<li ng-repeat="headPost in headPosts" on-finish-render="ngRepeatFinished">
-						<a ng-href="{{headPost.action}}"></a>
+						<a ng-href="{{headPost.action}}">
 							<img alt="{{headPost.title}}" ng-src="{{ headPost.imagePath }}">
-							<div class="caption center-align">
-								<h3>{{ headPost.title }}</h3>
-							</div>
+
+						<div class="caption center-align">
+							<h3>{{ headPost.title }}</h3>
+						</div>
 						</a>
 					</li>
 				</ul>

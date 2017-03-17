@@ -4,11 +4,12 @@
 			<div class="slider">
 				<ul class="slides">
 					<li ng-repeat="headPost in headPosts" on-finish-render="ngRepeatFinished">
-						<a ng-href="{{headPost.action}}"></a>
+						<a ng-href="{{headPost.action}}">
 							<img alt="{{headPost.title}}" ng-src="{{ headPost.imagePath }}">
-							<div class="caption center-align">
-								<h3>{{ headPost.title }}</h3>
-							</div>
+
+						<div class="caption center-align">
+							<h3>{{ headPost.title }}</h3>
+						</div>
 						</a>
 					</li>
 				</ul>
@@ -27,7 +28,7 @@
 							</div>
 							<div class="card-stacked">
 								<div class="card-content">
-									<p>{{ post.content }}</p>
+									<p ng-bind-html="post.content | unsafe"></p>
 								</div>
 								<div class="card-action">
 									<a ng-href="{{post.action}}">{{ post.actionTitle }}</a>
@@ -39,11 +40,13 @@
 			</div>
 		</section>
 	</article>
-	<div class="row">
-		<div class="col s12">
-			<div class="center" ng-show="posts.length">
-				<button type="button" class="waves-effect waves-light black btn rounded left" ng-disabled="curPage == 0" ng-click="curPage=curPage-1"><i class="material-icons right">chevron_left</i> ANTERIOR</button>
-				<button type="button" class="waves-effect waves-light black btn rounded right" ng-disabled="curPage >= posts.length/pageSize - 1" ng-click="curPage = curPage+1">PRÓXIMA <i class="material-icons right">chevron_right</i></button>
+	<div class="container">
+		<div class="row">
+			<div class="col s12">
+				<div class="center" ng-show="posts.length">
+					<button type="button" class="waves-effect waves-light black btn rounded left" ng-disabled="curPage == 0" ng-click="changePage(curPage=curPage-1)"><i class="material-icons right">chevron_left</i> ANTERIOR</button>
+					<button type="button" class="waves-effect waves-light black btn rounded right" ng-disabled="curPage >= posts.length/pageSize - 1" ng-click="changePage(curPage = curPage+1)">PRÓXIMA <i class="material-icons right">chevron_right</i></button>
+				</div>
 			</div>
 		</div>
 	</div>
